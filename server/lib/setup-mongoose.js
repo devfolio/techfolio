@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Set the URI to point to our database
-const dbURI = 'mongodb://localhost/techfolio' || process.env.MONGODB_URI;
+const dbURI = process.env.MONGODB_URI;
 
 mongoose.Promise = Promise;
 mongoose.connect( dbURI );

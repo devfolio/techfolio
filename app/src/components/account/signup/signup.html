@@ -2,9 +2,13 @@
   <h2>Sign Up for TechFolio</h2>
   <form ng-submit="$ctrl.signup()">
     <label>Email: <input required ng-model="$ctrl.email"> </label>
+    <br/>
     <label>First Name: <input required ng-model="$ctrl.firstname"> </label>
+    <br/>
     <label>Last Name: <input required ng-model="$ctrl.lastname"> </label>
+    <br/>
     <label>Password: <input required ng-model="$ctrl.password" type="password"> </label>
+    <br/>
     <button type="submit">Sign Up</button>
   </form>
   <div ng-if="$ctrl.error">{{$ctrl.error}}</div>

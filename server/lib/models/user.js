@@ -10,7 +10,10 @@ const userSchema = new Schema({
   lastName: { type: String, required: true },
   location: String,
   ghaccess: String, 
-  github: { type: {} },
+  github: { 
+    type: Schema.Types.ObjectId, 
+    ref: 'Github'
+  },
   linkedIn: { type: {} },
   twitter: { type: {} }
 

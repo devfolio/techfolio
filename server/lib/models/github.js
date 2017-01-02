@@ -12,9 +12,7 @@ const github = new Schema({
     description: String,
     avatar: String,
     html: String,
-    collaborators: String, 
-    cloneUrl: String,
-    numForks: Number
+    collaborators: String
   }
 });
 

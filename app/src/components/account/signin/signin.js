@@ -1,4 +1,4 @@
-import template from './signup.html';
+import template from './signin.html';
 
 export default {
   template,
@@ -11,16 +11,12 @@ function controller(userService) {
 
   this.reset = () => {
     this.email = '';
-    this.firstname = '';
-    this.lastname = '';
     this.password = '';
   };
 
-  this.signup = () => {
-    return userService.signup({
+  this.signin = () => {
+    return userService.signin({
       email: this.email,
-      firstName: this.firstname,
-      lastName: this.lastname,
       password: this.password
     })
     .then(res => {

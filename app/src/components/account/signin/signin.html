@@ -1,0 +1,9 @@
+<section>
+  <h2>Sign In for TechFolio</h2>
+  <form ng-submit="$ctrl.signin()">
+    <label>Email: <input required ng-model="$ctrl.email"> </label>
+    <label>Password: <input required ng-model="$ctrl.password" type="password"> </label>
+    <button type="submit">Sign In</button>
+  </form>
+  <div ng-if="$ctrl.error">{{$ctrl.error}}</div>
+</section>

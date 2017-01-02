@@ -14,5 +14,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'signup'
   });
 
+  $stateProvider.state({
+    name: 'signin',
+    url: '/signin',
+    component: 'signin'
+  });
+
   $urlRouterProvider.otherwise('/');
 }

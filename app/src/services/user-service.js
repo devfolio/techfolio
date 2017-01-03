@@ -8,7 +8,7 @@ export default function userService($http, $apiUrl, tokenService) {
           return res.data;
         });
     },
-    sigin(user) {
+    signin(user) {
       return $http.post(`${$apiUrl}/auth/signin`, user)
         .then(res => {
           return res.data;

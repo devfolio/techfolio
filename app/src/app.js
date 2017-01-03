@@ -16,6 +16,8 @@ const app = angular.module('TechFolio', [
   satellizer
 ]);
 
-app.value('apiUrl', 'http://localhost:3500');
+app.constant('apiUrl', 'http://localhost:3500');
 
 app.config(routes);
+
+app.config(oauth);

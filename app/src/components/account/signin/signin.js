@@ -2,7 +2,10 @@ import template from './signin.html';
 
 export default {
   template,
-  controller
+  controller,
+  bindings: {
+    success: '<'
+  }
 };
 
 controller.$inject = ['userService'];
@@ -21,6 +24,7 @@ function controller(userService) {
     })
     .then(res => {
       console.log(res);
+      this.success();
       this.reset();
     })
     .catch(err => this.error = err.error);

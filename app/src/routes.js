@@ -11,12 +11,14 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'signup',
     url: '/signup',
+    abstract: true,
     component: 'signup'
   });
 
   $stateProvider.state({
     name: 'signin',
     url: '/signin',
+    abstract: true,
     component: 'signin'
   });
 

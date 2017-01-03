@@ -58,6 +58,7 @@
     "angular": "^1.6.0",
     "angular-ui-router": "^1.0.0-beta.3",
     "camelcase": "^4.0.0",
-    "satellizer": "^0.15.5"
+    "satellizer": "^0.15.5",
+    "ng-dialog": "^0.6.4"
   }
 }

@@ -1,7 +1,7 @@
 oauth.$inject = ['$authProvider', 'apiUrl'];
 
 export default function oauth($authProvider, apiUrl) {
-  $authProvider.httpInterceptor = function() { return true; };
+  // $authProvider.httpInterceptor = function() { return true; };
 
   const url = `${apiUrl}/github`;
   $authProvider.github({

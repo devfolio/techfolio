@@ -9,18 +9,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'signup',
-    url: '/signup',
-    abstract: true,
-    component: 'signup'
+    name: 'userDash',
+    url: '/user',
+    template: '<p>Im in the user dash</p>'
   });
 
-  $stateProvider.state({
-    name: 'signin',
-    url: '/signin',
-    abstract: true,
-    component: 'signin'
-  });
 
   $urlRouterProvider.otherwise('/');
 }

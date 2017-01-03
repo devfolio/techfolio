@@ -31,7 +31,8 @@
     "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.7.2",
     "morgan": "^1.7.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "request": "^2.79.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

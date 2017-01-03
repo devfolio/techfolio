@@ -1,5 +1,14 @@
 import template from './welcome.html';
 
 export default {
-  template
+  template,
+  controller
 };
+
+controller.$inject= ['$auth'];
+
+function controller($auth){
+  this.authenticate = provider => {
+    $auth.authenticate(provider);
+  };
+}

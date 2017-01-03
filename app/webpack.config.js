@@ -27,11 +27,10 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['es2015'] //,
-            // cacheDirectory: true,
-            // plugins: ['transform-runtime']
+        presets: ['es2015'],
+        cacheDirectory: true
+        // plugins: ['transform-runtime']
       },
-      
     }, {
       test: /\.scss$/,
       loader: 'style-loader!css-loader?sourceMap!sass-loader?sourceMap'	
@@ -48,5 +47,6 @@ module.exports = {
   },
   sassLoader: {
     includePaths: ['./src/scss/partials']
-  }
+  },
+  target: 'web'
 };

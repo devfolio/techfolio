@@ -27,7 +27,6 @@ router
       return user.save();
     })
     .then(user => {
-      console.log('User: ', user);
       return token.sign(user);
     })
     .then(token => {

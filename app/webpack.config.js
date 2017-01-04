@@ -1,5 +1,7 @@
+require('dotenv').load();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const EnvironmentPlugin = require('webpack').EnvironmentPlugin;
 
 const cssExtract = new ExtractTextPlugin('main.css');
 
@@ -14,6 +16,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new EnvironmentPlugin(['LINKEDIN_CLIENTID', 'GITHUB_CLIENTID']),
     cssExtract
   ],
   module: {

@@ -36,5 +36,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'blog'
   });
 
+  $stateProvider.state({
+    name: 'welcome',
+    url: '/welcome',
+    component: 'welcome'
+  });
+
   $urlRouterProvider.otherwise('/');
 }

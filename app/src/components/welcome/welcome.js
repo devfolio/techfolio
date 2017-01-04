@@ -5,9 +5,11 @@ export default {
   controller
 };
 
-controller.$inject= ['$auth'];
+controller.$inject= ['$auth', '$window', 'tokenService'];
 
-function controller($auth){
+function controller($auth, window, tokenService){
+  
+  window.document.cookie = `token=${tokenService.get()}`;
   this.authenticate = provider => {
     $auth.authenticate(provider);
   };

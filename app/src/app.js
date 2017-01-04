@@ -27,8 +27,8 @@ const app = angular.module('TechFolio', [
 
 app.constant('apiUrl', 'http://localhost:3500');
 
+app.config(oauth);
 app.config(http);
 app.config(routes);
-app.config(oauth);
 
 app.run(auth);

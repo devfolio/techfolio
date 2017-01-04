@@ -2,12 +2,13 @@ const router = require('express').Router();
 const User = require('../../models/user');
 // const ensureToken = require('../../auth/ensure-token')();
 const request = require('request');
+const cookieParser = require('cookie-parser')();
 const qs = require('qs');
+const token = require('../../auth/token')
 
 const GITHUB_SECRET = process.env.GITHUB_SECRET;
 
-router.get('/', function(req) {
-  console.log('headers', req.headers);
+router.get('/', cookieParser, function(req, res) {
   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
   var params = {
     code: req.query.code,
@@ -18,12 +19,14 @@ router.get('/', function(req) {
 
   // Exchange authorization code for access token.
   request.get({ url: accessTokenUrl, qs: params }, function(err, response, accessToken) {
-    // console.log('token json', JSON.parse(localStorage.getItem('TechFolio_token')));
+    
     accessToken = qs.parse(accessToken);
-    User.findById(req.user.id)
+    //Token hack until we can pass token through headers in Satellizer
+    token.verify(req.cookies.token)
+      .then(({id}) => User.findById(id) )
       .then(user => {
         user.ghAccess = accessToken;
-        response.send(user);
+        res.send(user);
       });
 
   });

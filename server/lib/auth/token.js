@@ -16,8 +16,7 @@ module.exports = {
     });
   },
 
-  verify(token){ 
-    console.log('token:', token);
+  verify(token){
     return new Promise((resolve, reject) => {
       jwt.verify(token, tokenValidator, (err, payload) => {
         // default error is jwt internal stack trace: use a custom error instead

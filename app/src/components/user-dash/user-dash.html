@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TechFolio">
+<head>
+    <meta charset="UTF-8">
+    <title>TechFolio</title>
+</head>
+<body>
+
+    <div>
+        <ui-view>Header goes here</ui-view>
+    </div>
+
+    <div>
+        <h2>Linked In</h2>
+        <div ng-if="!$ctrl.lilink">
+            <button ng-click="$ctrl.authenticate('linkedin')">Sign in with LinkedIn</button>
+        </div>
+        <linkedIn></linkedIn>
+    </div>
+
+    <div>
+        <h2>Github</h2>
+        <div ng-if="!$ctrl.ghlink">
+            <button ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
+        </div>
+        <github></github>
+    </div>
+
+</body>
+</html>

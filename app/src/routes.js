@@ -53,12 +53,17 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'profile',
-    url: '/profile',
-    component: 'profile',
-    resolve: {
-      linkedIn: [ () => { return {}; } ]
-    }
+    name: 'userDash.linkedIn',
+    url: '/linkedIn',
+    abstract: true,
+    component: 'linkedIn'
+  });
+
+  $stateProvider.state({
+    name: 'userDash.github',
+    url: '/github',
+    abstract: true,
+    component: 'github'
   });
 
   $stateProvider.state({

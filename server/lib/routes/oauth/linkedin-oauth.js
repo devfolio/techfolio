@@ -5,6 +5,7 @@ const jsonParser = require('body-parser').json();
 const token = require('../../auth/token');
 
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET;
+const LINKEDIN_CLIENTID = process.env.LINKEDIN_CLIENTID
 
 router.get('/', (req, res) => {
   res.send('Successful - Redirecting...');
@@ -14,7 +15,7 @@ router.post('/', jsonParser, function(req, res) {
   var accessTokenUrl = 'https://www.linkedin.com/oauth/v2/accessToken';
   var params = {
     code: req.body.code,
-    client_id: '86xdssak7j3wxb',
+    client_id: LINKEDIN_CLIENTID,
     client_secret: LINKEDIN_SECRET,
     redirect_uri: 'http://localhost:8080/linkedin/',
     grant_type: 'authorization_code'

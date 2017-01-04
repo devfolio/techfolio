@@ -6,8 +6,8 @@ const jsonParser = require('body-parser').json();
 const qs = require('qs');
 const token = require('../../auth/token');
 
-
 const GITHUB_SECRET = process.env.GITHUB_SECRET;
+const GITHUB_CLIENTID = process.env.GITHUB_CLIENTID;
 
 router.get('/', (req, res) => {
   res.send('Successful - Redirecting...');
@@ -17,7 +17,7 @@ router.post('/', jsonParser, function(req, res, next) {
   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
   var params = {
     code: req.body.code,
-    client_id: '19c715da69eda6573929',
+    client_id: GITHUB_CLIENTID,
     client_secret: GITHUB_SECRET
   };
 

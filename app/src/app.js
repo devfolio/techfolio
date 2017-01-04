@@ -25,6 +25,7 @@ const app = angular.module('TechFolio', [
   satellizer
 ]);
 
+
 app.constant('apiUrl', 'http://localhost:3500');
 app.value('ghUrl', 'http://api.github.com');
 

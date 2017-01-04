@@ -6,8 +6,6 @@ export default {
   controller
 };
 
-controller.$inject = ['$state'];
-
-function controller($state) { // eslint-disable-line
+function controller() { 
   this.styles = styles;
 }

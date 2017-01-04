@@ -5,26 +5,37 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'home',
     url: '/home',
+    abstract: true,
     component: 'home'
   });
 
   $stateProvider.state({
     name: 'welcome',
     url: '/welcome',
-    component: 'welcome'
+    component: 'welcome',
+    data: {
+      public: true
+    }
+  });
+
+  $stateProvider.state({
+    name: 'about',
+    url: '/about',
+    component: 'about',
+    data: {
+      public: true
+    }
   });
 
   $stateProvider.state({
     name: 'userDash',
     url: '/user',
-    template: '<p>Im in the user dash</p>'
-  });
-
-
-  $stateProvider.state({
-    name: 'about',
-    url: '/about',
-    component: 'about'
+    resolve: {
+      userData: ['userService', userService => {
+        return userService.getProfile();
+      }]
+    },
+    component: 'userDash'
   });
 
   $stateProvider.state({
@@ -42,11 +53,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
     component: 'blog'
   });
 
-  $stateProvider.state({
-    name: 'welcome',
-    url: '/welcome',
-    component: 'welcome'
-  });
+
 
   $urlRouterProvider.otherwise('/');
 }

@@ -10,6 +10,7 @@ const GITHUB_SECRET = process.env.GITHUB_SECRET;
 
 router.get('/', cookieParser, function(req, res) {
   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
+  // var userApiUrl = 'https://api.github.com/user';
   var params = {
     code: req.query.code,
     client_id: '19c715da69eda6573929',
@@ -25,9 +26,11 @@ router.get('/', cookieParser, function(req, res) {
     token.verify(req.cookies.token)
       .then(({id}) => User.findById(id) )
       .then(user => {
-        user.ghAccess = accessToken;
-        res.send('Thanks for Linking');
-      });
+        user.ghaccess = accessToken.access_token;
+        user.save();
+        res.send(user.ghaccess);
+      })
+        .catch(console.log(err));
 
   });
 

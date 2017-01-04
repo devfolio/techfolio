@@ -10,13 +10,12 @@ export default function oauth($authProvider, apiUrl) {
     url: `${apiUrl}/github/`,
     clientId: '19c715da69eda6573929',
     redirectUri: `${apiUrl}/github/`,
-    withCredentials: true
   });
 
   $authProvider.linkedin({
     url: `${apiUrl}/linkedin/`,
     clientId: '19c715da69eda6573929',
     redirectUri: `${apiUrl}/linkedin/`,
-    withCredentials: true
+    state: 'Devfolio'
   });
 }

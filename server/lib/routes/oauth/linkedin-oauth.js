@@ -14,6 +14,7 @@ router.post('/', cookieParser, function(req, res) {
     code: req.body.code,
     client_id: '86xdssak7j3wxb',
     client_secret: LINKEDIN_SECRET,
+    redirect_uri: req.body.redirectUri,
     grant_type: 'authorization_code'
   };
 

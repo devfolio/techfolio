@@ -9,7 +9,7 @@ const token = require('../../auth/token');
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET;
 
 router.post('/', cookieParser, function(req, res) {
-  var accessTokenUrl = 'https://www.linkedin.com/uas/oauth2/accessToken';
+  var accessTokenUrl = 'https://www.linkedin.com/oauth/v2/authorization';
   var params = {
     code: req.body.code,
     client_id: '86xdssak7j3wxb',

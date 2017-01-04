@@ -4,8 +4,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'home',
-    url: '/home',
-    component: 'home'
+    url: '/',
+    component: 'welcome'
   });
 
   $stateProvider.state({

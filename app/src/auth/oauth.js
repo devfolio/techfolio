@@ -14,7 +14,8 @@ export default function oauth($authProvider, apiUrl) {
 
   $authProvider.linkedin({
     url: `${apiUrl}/linkedin/`,
-    clientId: '19c715da69eda6573929',
+    authorizationEndpoint: 'https://www.linkedin.com/oauth/v2/authorization',
+    clientId: '86xdssak7j3wxb',
     redirectUri: `${apiUrl}/linkedin/`,
     state: 'Devfolio'
   });

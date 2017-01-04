@@ -4,36 +4,66 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'home',
-    url: '/',
+    url: '/home',
+    abstract: true,
     component: 'home'
   });
 
   $stateProvider.state({
     name: 'welcome',
     url: '/welcome',
-    component: 'welcome'
+    component: 'welcome',
+    data: {
+      public: true
+    }
   });
-
-  $stateProvider.state({
-    name: 'userDash',
-    url: '/user',
-    template: '<p>Im in the user dash</p>'
-  });
-
 
   $stateProvider.state({
     name: 'about',
     url: '/about',
-    component: 'about'
+    component: 'about',
+    data: {
+      public: true
+    }
   });
 
   $stateProvider.state({
-    name: 'profile',
-    url: '/profile',
-    component: 'profile',
+    name: 'userProfiles',
+    url: '/user/:userUrl',
     resolve: {
-      linkedIn: [ () => { return {}; } ]
+      userUrl: ['$transition$', t => t.params().userUrl],
+      userProfile: ['userService', 'userUrl', (userService, userUrl) => {
+        return userService.getPublicProfile(userUrl);
+      }]
+    },
+    data: {
+      public: true
     }
+  });
+
+  $stateProvider.state({
+    name: 'userDash',
+    url: '/dashboard',
+    resolve: {
+      userData: ['userService', userService => {
+        return userService.getProfile();
+      }]
+    },
+    component: 'userDash'
+  });
+
+  $stateProvider.state({
+    name: 'userDash.linkedIn',
+    url: '/linkedIn',
+    abstract: true,
+    component: 'linkedIn'
+  });
+
+  $stateProvider.state({
+    name: 'userDash.github',
+    url: '/github',
+    abstract: true,
+    component: 'github'
   });
 
   $stateProvider.state({
@@ -41,6 +71,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
     url: '/blog',
     component: 'blog'
   });
-
+  
   $urlRouterProvider.otherwise('/');
 }

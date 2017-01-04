@@ -24,7 +24,10 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'profile',
     url: '/profile',
-    component: 'profile'
+    component: 'profile',
+    resolve: {
+      linkedIn: [ () => { return {}; } ]
+    }
   });
 
   $stateProvider.state({

@@ -1,25 +1,22 @@
-
 <section>
-
   <!-- object entries from LinkedIn api -->
   <h2>Profile</h2>
   <br/>
-  <div>{picture-url}</div>
+  <img src={{$ctrl.picture-url}}>
   <div>
-    <h3>{first-name}</h3>
-    <h3>{last-name}</h3>
+    <h3>{{$ctrl.firstName}}</h3>
+    <h3>{{$ctrl.lastName}}</h3>
   </div>
   <div>
-    <h3>{headline}</h3>
-  </div>
-  <div>{location}</div>
-  <div>{public-profile-url}<div>
+    <h3>{{$ctrl.headline}}</h3>
+  </div>  
+  <div>{{$ctrl.location}}</div>
+  <div>{{$ctrl.publicProfileUrl}}</div>
   <div>
-    <h3>{specialties}</h3>
+    <h3>{{$ctrl.specialties}}</h3>
   </div>
-  <div>{positions}</div>
+  <div>{{$ctrl.positions}}</div>
   <div>
-    <h3>{summary}</h3>
+    <h3>{{$ctrl.summary}}</h3>
   </div>
-
 </section>

@@ -28,17 +28,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'userDash',
-    url: '/user',
-    resolve: {
-      userData: ['userService', userService => {
-        return userService.getProfile();
-      }]
-    },
-    component: 'userDash'
-  });
-
-  $stateProvider.state({
     name: 'userProfiles',
     url: '/user/:userUrl',
     resolve: {
@@ -51,7 +40,18 @@ export default function routes($stateProvider, $urlRouterProvider) {
       public: true
     }
   });
-  
+
+  $stateProvider.state({
+    name: 'userDash',
+    url: '/dashboard',
+    resolve: {
+      userData: ['userService', userService => {
+        return userService.getProfile();
+      }]
+    },
+    component: 'userDash'
+  });
+
   $stateProvider.state({
     name: 'profile',
     url: '/profile',

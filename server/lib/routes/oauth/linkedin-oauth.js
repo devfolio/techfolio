@@ -30,7 +30,6 @@ router.post('/', jsonParser, function(req, res) {
       oauth2_access_token: body.access_token,
       format: 'json'
     };
-    console.log('got here too', params);
     let userToken = req.headers.authorization;
     //Token hack until we can pass token through headers in Satellizer
     token.verify(userToken)

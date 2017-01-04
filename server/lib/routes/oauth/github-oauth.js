@@ -25,8 +25,8 @@ router.get('/', cookieParser, function(req, res) {
     token.verify(req.cookies.token)
       .then(({id}) => User.findById(id) )
       .then(user => {
-        user.ghAccess = accessToken;
-        res.send('Thanks for Linking');
+        user.ghaccess = accessToken;
+        res.send({token:'123'});
       });
 
   });

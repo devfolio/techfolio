@@ -5,12 +5,18 @@ export default function oauth($authProvider, apiUrl) {
   // $authProvider.httpInterceptor = () => {return false;};
   $authProvider.withCredentials = true;
 
-  const url = `${apiUrl}/github/`;
   $authProvider.github({
     // httpInterceptor: false,
-    url,
+    url: `${apiUrl}/github/`,
     clientId: '19c715da69eda6573929',
-    redirectUri: url,
+    redirectUri: `${apiUrl}/github/`,
+    withCredentials: true
+  });
+
+  $authProvider.linkedin({
+    url: `${apiUrl}/linkedin/`,
+    clientId: '19c715da69eda6573929',
+    redirectUri: `${apiUrl}/linkedin/`,
     withCredentials: true
   });
 }

@@ -1,6 +1,8 @@
 import angular from 'angular';
 import components from './components';
 import services from './services';
+import './scss/main.scss';
+import 'normalize.css';
 
 import satellizer from 'satellizer';
 import oauth from './auth/oauth';

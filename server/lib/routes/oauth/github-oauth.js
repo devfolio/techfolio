@@ -26,7 +26,7 @@ router.get('/', cookieParser, function(req, res) {
       .then(({id}) => User.findById(id) )
       .then(user => {
         user.ghAccess = accessToken;
-        res.send(user);
+        res.send('Thanks for Linking');
       });
 
   });

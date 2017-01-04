@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use((req, res, next) => {
   res.set('Access-Control-Allow-Origin', '*'); //aka res.headers, url
   res.set('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE');
-  res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   next();
 });
 

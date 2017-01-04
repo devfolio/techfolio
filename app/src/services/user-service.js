@@ -18,10 +18,11 @@ export default function userService($http, apiUrl, tokenService) {
       tokenService.remove();
     },
     getPublicProfile(userUrl) {
-      return $http.get(`${apiUrl}/user/${userUrl}`)
-        .then(res => {
-          return res;
-        });
+      return {name: 'Joe Public', url: userUrl};
+      // return $http.get(`${apiUrl}/user/${userUrl}`)
+      //   .then(res => {
+      //     return res;
+      //   });
     },
     getProfile() {
       return $http.get(`${apiUrl}/auth/`)

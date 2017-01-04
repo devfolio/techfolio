@@ -15,7 +15,14 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: 'Github'
   },
-  linkedIn: { type: {} },
+  liAccess: { 
+    oauth2_access_token: String,
+    format: String
+  },
+  linkedIn: {
+    type: Schema.Types.ObjectId,
+    ref: 'LinkedIn'
+  },
   twitter: { type: {} }
 
 });

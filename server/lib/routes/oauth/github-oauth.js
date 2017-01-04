@@ -21,10 +21,10 @@ router.get('/', cookieParser, function(req, res) {
 
   // Exchange authorization code for access token.
   request.get({ url: accessTokenUrl, qs: params }, function(err, response, accessToken) {
-    
+    let userToken = req.cookies.token;
     accessToken = qs.parse(accessToken);
     //Token hack until we can pass token through headers in Satellizer
-    token.verify(req.cookies.token)
+    token.verify(userToken)
       .then(({id}) => User.findById(id) )
       .then(user => {
         user.ghaccess = accessToken.access_token;
@@ -32,9 +32,6 @@ router.get('/', cookieParser, function(req, res) {
         res.send('Thanks for Linking');
       })
         .catch(console.log(err));
-
-      });
-
 
   });
 

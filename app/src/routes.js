@@ -71,8 +71,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
     url: '/blog',
     component: 'blog'
   });
-
-
-
+  
   $urlRouterProvider.otherwise('/');
 }

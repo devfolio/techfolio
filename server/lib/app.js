@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const auth = require('./routes/auth-router');
 const github = require('./routes/oauth/github-oauth');
+const linkedin = require('./routes/oauth/linkedin-oauth');
 const admin = require('./routes/admin-router');
 const errorHandler = require('./error-handler');
 
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
 app.use(express.static('./public'));
 
 app.use('/github', github);
+app.use('/linkedin', linkedin);
 app.use('/auth', auth);
 app.use('/admin', admin);
 app.use(errorHandler);

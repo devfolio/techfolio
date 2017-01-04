@@ -4,7 +4,7 @@ const User = require('../../models/user');
 const request = require('request');
 const cookieParser = require('cookie-parser')();
 const qs = require('qs');
-const token = require('../../auth/token')
+const token = require('../../auth/token');
 
 const GITHUB_SECRET = process.env.GITHUB_SECRET;
 

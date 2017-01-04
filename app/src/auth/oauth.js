@@ -4,12 +4,13 @@ export default function oauth($authProvider, apiUrl) {
 
   // $authProvider.httpInterceptor = () => {return false;};
   $authProvider.withCredentials = true;
+  const currentLocation = window.location.origin;
 
   $authProvider.github({
     // httpInterceptor: false,
     url: `${apiUrl}/github/`,
     clientId: '19c715da69eda6573929',
-    redirectUri: `${apiUrl}/github/`,
+    redirectUri: `${currentLocation}/github/`,
   });
 
   $authProvider.linkedin({

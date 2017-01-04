@@ -1,8 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
-const auth = require('./routes/auth-router');
 const github = require('./routes/oauth/github-oauth');
 const linkedin = require('./routes/oauth/linkedin-oauth');
+const user = require('./routes/user-router');
+const auth = require('./routes/auth-router');
 const admin = require('./routes/admin-router');
 const errorHandler = require('./error-handler');
 
@@ -30,6 +31,7 @@ app.use(express.static('./public'));
 
 app.use('/github', github);
 app.use('/linkedin', linkedin);
+app.use('/user', user);
 app.use('/auth', auth);
 app.use('/admin', admin);
 app.use(errorHandler);

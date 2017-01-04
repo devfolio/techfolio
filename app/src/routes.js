@@ -3,9 +3,9 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
-    name: 'welcome',
-    url: '/welcome',
-    component: 'welcome'
+    name: 'home',
+    url: '/home',
+    component: 'home'
   });
 
   $stateProvider.state({
@@ -14,6 +14,27 @@ export default function routes($stateProvider, $urlRouterProvider) {
     template: '<p>Im in the user dash</p>'
   });
 
+
+  $stateProvider.state({
+    name: 'about',
+    url: '/about',
+    component: 'about'
+  });
+
+  $stateProvider.state({
+    name: 'profile',
+    url: '/profile',
+    component: 'profile',
+    resolve: {
+      linkedIn: [ () => { return {}; } ]
+    }
+  });
+
+  $stateProvider.state({
+    name: 'blog',
+    url: '/blog',
+    component: 'blog'
+  });
 
   $urlRouterProvider.otherwise('/');
 }

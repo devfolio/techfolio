@@ -32,7 +32,6 @@ router.post('/', jsonParser, function(req, res, next) {
     token.verify(userToken)
       .then(({id}) => User.findById(id) )
       .then(user => {
-        // console.log(userToken);
         user.ghaccess = accessToken.access_token;
         user.save();
         res.send();

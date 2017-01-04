@@ -14,7 +14,7 @@ function controller(userData) {
 
   this.firstName = userData.linkedIn.firstName;
   this.lastName = userData.linkedIn.lastName;
-  this.headling = userData.linkedIn.headline;
+  this.headline = userData.linkedIn.headline;
   this.location = userData.linkedIn.location;
   this.publicProfileUrl = userData.linkedIn.publicProfileUrl;
   this.specialties = userData.linkedIn.specialties;

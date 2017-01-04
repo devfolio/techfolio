@@ -8,8 +8,8 @@ const ensureToken = require('../auth/ensure-token')();
 router
 
   .get('/', ensureToken, (req, res, next) => {
-    User.findById(req.body.id)
-      .select('-ghaccess, -liAccess')
+    User.findById(req.user.id)
+      .select('-ghaccess -liAccess')
       .populate({ path: 'Github' })
       .populate({ path: 'LinkedIn' })
       .lean()

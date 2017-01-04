@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')();
 const qs = require('qs');
 const token = require('../../auth/token')
 
+
 const GITHUB_SECRET = process.env.GITHUB_SECRET;
 
 router.get('/', cookieParser, function(req, res) {
@@ -28,9 +29,12 @@ router.get('/', cookieParser, function(req, res) {
       .then(user => {
         user.ghaccess = accessToken.access_token;
         user.save();
-        res.send(user.ghaccess);
+        res.send('Thanks for Linking');
       })
         .catch(console.log(err));
+
+      });
+
 
   });
 

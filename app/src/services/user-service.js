@@ -16,6 +16,18 @@ export default function userService($http, apiUrl, tokenService) {
     },
     signout() {
       tokenService.remove();
+    },
+    getPublicProfile(userUrl) {
+      return $http.get(`${apiUrl}/user/${userUrl}`)
+        .then(res => {
+          return res;
+        });
+    },
+    getProfile() {
+      return $http.get(`${apiUrl}/auth/`)
+        .then(res => {
+          return res;
+        });
     }
   };
 }

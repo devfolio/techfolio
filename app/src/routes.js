@@ -9,6 +9,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
+    name: 'welcome',
+    url: '/welcome',
+    component: 'welcome'
+  });
+
+  $stateProvider.state({
     name: 'userDash',
     url: '/user',
     template: '<p>Im in the user dash</p>'
@@ -34,6 +40,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
     name: 'blog',
     url: '/blog',
     component: 'blog'
+  });
+
+  $stateProvider.state({
+    name: 'welcome',
+    url: '/welcome',
+    component: 'welcome'
   });
 
   $urlRouterProvider.otherwise('/');

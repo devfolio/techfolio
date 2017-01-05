@@ -15,4 +15,11 @@
 
 
     <button ng-click="$ctrl.getRepos()">github repos</button>
+    <div class="box" ng-if"ctrl.repos">
+        <ul ng-repeat="repo in $ctrl.repos">
+            <li>Name: <a href="{{repo.html_url}}">{{repo.name}}</a></li>
+            <li>Stars: {{repo.stargazers_count}}</li>
+            <li>Last Update: {{repo.updated_at}}</li>
+        </ul>
+    </div>
 </section>

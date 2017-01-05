@@ -48,15 +48,26 @@ router.post('/', jsonParser, function(req, res) {
 
 router.get('/:token', ensureToken, (req, res) => {
   let user = User.findById(req.user.id);
-  let profileUrl = 'https://api.linkedin.com/v1/people/~';
+  let fields = [
+    'first-name',
+    'last-name',
+    'headline',
+    'picture-url',
+    'positions',
+    'specialties',
+    'public-profile-url',
+    'summary',
+    'num-connections'
+  ];
+  let profileUrl = `https://api.linkedin.com/v1/people/~:(${fields.join()})`;
   let params = {
     oauth2_access_token: user.liAccess.oauth2_access_token,
     format: user.liAccess.format
   };
 
   request.get({url: profileUrl, qs: params, json: true}, (err, response, profile) => {
-
-  })
-} )
+    res.send(profile);
+  });
+});
 
 module.exports = router;

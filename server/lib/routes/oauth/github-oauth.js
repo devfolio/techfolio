@@ -21,16 +21,17 @@ router
     .select('ghaccess')
     .then(user => {
       return new Promise((resolve, reject) => {
-        request.get({url: `${ghUrl}/user?access_token=${user.ghaccess}`, headers: {'User-Agent': 'Devfolio'}}, 
+        request.get({
+          url: `${ghUrl}/user?access_token=${user.ghaccess}`,
+          headers: { 'User-Agent': 'Devfolio' }
+        },
           (err, response, body) => {
             if(err) return reject({'error': err});
             resolve(body);
           });
       });
     })
-    .then(body => {
-      res.send(body);
-    })
+    .then(body => { res.send(body); })
     .catch(err => next(err));
 })
 

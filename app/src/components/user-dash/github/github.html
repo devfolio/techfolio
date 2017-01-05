@@ -1,7 +1,10 @@
 <section ng-class="$ctrl.styles">
     <button ng-click="$ctrl.getProfile()">github profile</button>
 
-    <div class="box">
+    <div class="loader" ng-if="$ctrl.loading">
+        <h1>Loading</h1>
+    </div>
+    <div class="box"ng-if="!$ctrl.loading">
         <p>Username: {{$ctrl.profile.login}}</p>
         <p>Github: <a href="{{$ctrl.profile.html_url}}">{{$ctrl.profile.html_url}}</a></p>
         <p>Number of public repos: {{$ctrl.profile.public_repos}}</p>

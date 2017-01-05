@@ -11,12 +11,13 @@ controller.$inject = ['githubService'];
 function controller (githubService) {
   this.styles = styles;
 
+  this.loading = true;
+
   this.$onInit = () => {
     githubService.getProfile()
       .then(profile => {
+        this.loading = false;        
         this.profile = profile;
-        console.log('in controller profile: ', this.profile);
-        
       });
   };
 

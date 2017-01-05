@@ -1,16 +1,16 @@
 <section>
     <nav></nav>
 
-    <div>
-        <h2>Linked In</h2>
+    <div class="boxshadow profileboxes">
+        <h2>LinkedIn</h2>
         <div ng-if="!$ctrl.lilink">
             <button ng-click="$ctrl.authenticate('linkedin')">Sign in with LinkedIn</button>
         </div>
         <linkedIn></linkedIn>
     </div>
 
-    <div>
-        <h2>Github</h2>
+    <div class="boxshadow profileboxes">
+        <h2>GitHub</h2>
         <div ng-if="!$ctrl.ghlink">
             <button ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
         </div>

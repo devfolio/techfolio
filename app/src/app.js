@@ -13,6 +13,7 @@ import 'angular-ui-router/release/stateEvents';
 import dialog from 'ng-dialog';
 import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
+import 'angular-material/angular-material.css';
 
 import routes from './routes';
 import http from './auth/http';

@@ -35,7 +35,6 @@ router
         };
         return new Promise((resolve, reject) => {
           request.get({url: profileUrl, qs: params, json: true}, (err, response, profile) => {
-            console.log('Got Here');
             if(err) return reject({error: err});
             resolve(profile);
           })
@@ -90,7 +89,6 @@ router
   })
 
   .post('/userupdate', ensureToken, bodyParser, (req, res, next) => {
-    console.log(req.body);
     User.findById(req.user.id)
       .then(user => {
         if(user.linkedIn){

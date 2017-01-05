@@ -14,7 +14,6 @@ function controller($auth, linkedinService){
   };
 
   this.getLinkedIn = () => {
-    linkedinService.get()
-      .then(res => console.log(res));
+    linkedinService.get();
   };
 }

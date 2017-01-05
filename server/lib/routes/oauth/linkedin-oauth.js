@@ -20,8 +20,6 @@ router
       .select('liAccess')
       .then(user => {
         let fields = [
-          'first-name',
-          'last-name',
           'headline',
           'picture-url',
           'positions',
@@ -30,23 +28,31 @@ router
           'summary',
           'num-connections'
         ];
-        console.log(fields.join());
         let profileUrl = `https://api.linkedin.com/v1/people/~:(${fields.join()})`;
         let params = {
           oauth2_access_token: user.liAccess.oauth2_access_token,
           format: user.liAccess.format
         };
         return new Promise((resolve, reject) => {
-          console.log('url', profileUrl);
           request.get({url: profileUrl, qs: params, json: true}, (err, response, profile) => {
-            console.log('profile: ', profile);
+            console.log('Got Here');
             if(err) return reject({error: err});
             resolve(profile);
           })
         })
       })
       .then(profile => {
-        res.send(profile);
+        let modProfile = {
+          headline: profile.headline,
+          positionTitle: profile.positions.values[0].title,
+          positionCompany: profile.positions.values[0].company.name,
+          positionLocation: profile.positions.values[0].location.name,
+          positionSummary: profile.positions.values[0].summary,
+          connections: profile.numConnections,
+          pictureUrl: profile.pictureUrl,
+          profileUrl: profile.publicProfileUrl
+        };
+        res.send(modProfile);
       })
       .catch(error => next(error));
   })
@@ -84,10 +90,11 @@ router
   })
 
   .post('/userupdate', ensureToken, bodyParser, (req, res, next) => {
+    console.log(req.body);
     User.findById(req.user.id)
       .then(user => {
         if(user.linkedIn){
-          LinkedIn.findByIdandUpdate(user.linkedIn, req.body)
+          LinkedIn.findByIdAndUpdate(user.linkedIn, req.body)
             .then(() => res.send(user));
         } else {
           new LinkedIn(req.body)

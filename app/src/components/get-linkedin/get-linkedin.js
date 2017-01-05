@@ -12,19 +12,26 @@ export default {
 controller.$inject = ['linkedinService'];
 
 function controller(linkedinService){
+
+  this.selected ={
+    headline: true,
+    position:false,
+    positionTitle: false,
+    positionCompany: false,
+    positionLocation: false,
+    positionSummary: false,
+    connections: false,
+    pictureUrl: false,
+    profileUrl: false
+  };
   this.styles = styles;  
   this.linkProfile = {};
-  this.updateProfile = {
-    headline: this.headline,
-    position: {
-      title: this.positionTitle,
-    },
-    connections: this.connections,
-    pictureUrl: this.pictureUrl,
-    profileUrl: this.profileUrl
-  };
 
-  console.log
+  this.check = () => {
+    Object.keys(this.linkProfile).forEach(key => {
+      if(!this.selected[key]) delete this.linkProfile[key];
+    });
+  };
 
   linkedinService.get()
     .then(profile => {
@@ -32,7 +39,10 @@ function controller(linkedinService){
     });
 
   this.submit = () => {
-    linkedinService.post(this.updateProfile)
+    Object.keys(this.linkProfile).forEach(key => {
+      if(!this.selected[key]) delete this.linkProfile[key];
+    });
+    linkedinService.post(this.linkProfile)
       .then(() => {
         this.success();
       });

@@ -3,9 +3,10 @@ const Schema = mongoose.Schema;
 
 const linkedin = new Schema({
   headline: String,
-  position: {
-    title: String,
-  },
+  positionTitle: String,
+  positionCompany: String,
+  positionLocation: String,
+  positionSummary: String,
   connections: String,
   pictureUrl: String,
   profileUrl: String

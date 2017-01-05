@@ -21,11 +21,11 @@ function controller(ngDialog, $state) {
     ngDialog.open({
       template: '<get-linkedin success="success"></get-linkedin>',
       plain: true, 
-      width: '75%',
+      width: '90%',
       controller: ['$scope', $scope => {
         $scope.success = () => {
           ngDialog.close();
-          return $state.go('user-dash');
+          return $state.go('userDash');
         };
       }]
     });

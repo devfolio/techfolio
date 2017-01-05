@@ -43,7 +43,7 @@ router
   };
 
   // Exchange authorization code for access token.
-  request.get({ url: accessTokenUrl, qs: params }, function(err, response, accessToken) {
+  request.get({ url: accessTokenUrl, qs: params }, (err, response, accessToken) => {
     if(err) return next(err);
     
     let userToken = req.headers.authorization;

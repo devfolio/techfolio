@@ -2,11 +2,11 @@
   <h2>Updated info from LinkedIn</h2>
   <form>
     <ul>
-      <li><input type="checkbox"><label>Headline: {{$ctrl.linkProfile.headline}}</label></li>
-      <li><input type="checkbox"><label>Last or Current Position: {{$ctrl.linkProfile.positions.values[0].title}}</label></li>
-      <li><input type="checkbox"><label>Number of LinkedIn Connections: {{$ctrl.linkProfile.numConnections}}</label></li>
-      <li><input type="checkbox"><label>Profile Picture: <img src="{{$ctrl.linkProfile.firstname}}" alt=""></label></li>
-      <li><input type="checkbox"><label>Profile Url: {{$ctrl.linkProfile.publicProfileUrl}}</label></li>
+      <li><input type="checkbox" ng-model="$ctrl.headline" ng-true-value="$ctrl.linkProfile.headline"><label>Headline: {{$ctrl.linkProfile.headline}}</label></li>
+      <li><input type="checkbox" ng-model="$ctrl.positionTitle" ng-true-value="$ctrl.linkProfile.positions.values[0].title"><label>Last or Current Position: {{$ctrl.linkProfile.positions.values[0].title}}</label></li>
+      <li><input type="checkbox" ng-model="$ctrl.connections" ng-true-value="$$ctrl.linkProfile.numConnections"><label>Number of LinkedIn Connections: {{$ctrl.linkProfile.numConnections}}</label></li>
+      <li><input type="checkbox" ng-model="$ctrl.pictureUrl" ng-true-value="$ctrl.linkProfile.firstname"><label>Profile Picture: <img src="{{$ctrl.linkProfile.pictureUrl}}" alt=""></label></li>
+      <li><input type="checkbox" ng-model="$ctrl.profileUrl" ng-true-value="$$ctrl.linkProfile.publicProfileUrl"><label>Profile Url: {{$ctrl.linkProfile.publicProfileUrl}}</label></li>
     </ul>
     <button ng-click="$ctrl.submit()">Save Settings</button>
   </form>

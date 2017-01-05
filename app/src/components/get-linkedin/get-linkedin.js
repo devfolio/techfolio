@@ -24,6 +24,8 @@ function controller(linkedinService){
     profileUrl: this.profileUrl
   };
 
+  console.log
+
   linkedinService.get()
     .then(profile => {
       this.linkProfile = profile;
@@ -31,8 +33,8 @@ function controller(linkedinService){
 
   this.submit = () => {
     linkedinService.post(this.updateProfile)
-      .then(data => {
-        this.success(data);
+      .then(() => {
+        this.success();
       });
   };
 

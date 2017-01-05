@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const User = require('../../models/user');
+const LinkedIn = require('../../models/linkedin');
 const request = require('request');
-const qs = require('querystring');
-const jsonParser = require('body-parser').json();
+const bodyParser = require('body-parser').json();
 const token = require('../../auth/token');
 const ensureToken = require('../../auth/ensure-token')();
+
 
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET;
 const LINKEDIN_CLIENTID = process.env.LINKEDIN_CLIENTID;
@@ -50,7 +51,7 @@ router
       .catch(error => next(error));
   })
 
-  .post('/', jsonParser, function(req, res) {
+  .post('/', bodyParser, function(req, res) {
     var accessTokenUrl = 'https://www.linkedin.com/oauth/v2/accessToken';
     var params = {
       code: req.body.code,
@@ -79,9 +80,28 @@ router
           user.save();
           res.send({token: params});
         });
-
     });
+  })
 
-  });
+  .post('/userupdate', ensureToken, bodyParser, (req, res, next) => {
+    User.findById(req.user.id)
+      .then(user => {
+        if(user.linkedIn){
+          LinkedIn.findByIdandUpdate(user.linkedIn, req.body)
+            .then(() => res.send(user));
+        } else {
+          new LinkedIn(req.body)
+            .save()
+            .then(profile => {
+              user.linkedIn = profile._id;
+              return user.save();
+            })
+            .then(user => {
+              res.send(user);
+            });
+        }
+      })
+      .catch(err => next(err));
+  })
 
 module.exports = router;

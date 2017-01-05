@@ -17,16 +17,13 @@ function controller(ngDialog, $state) {
   // this.ghlink = !!(this.userData.ghUsername);
   // this.lilink = !!(this.userData.linkedIn);
 
-  this.linkedinData = {};
-
   this.updateLinkProfile = () => {
     ngDialog.open({
       template: '<get-linkedin success="success"></get-linkedin>',
       plain: true, 
       width: '75%',
       controller: ['$scope', $scope => {
-        $scope.success = (linkData) => {
-          this.linkedinData = linkData;
+        $scope.success = () => {
           ngDialog.close();
           return $state.go('user-dash');
         };

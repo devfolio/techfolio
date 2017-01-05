@@ -7,7 +7,7 @@ export default function linkedInService($http, apiUrl) {
         .then(res => res.data);
     },
     post() {
-      return $http.post(`${apiUrl}/linkedin/userUpdate`)
+      return $http.post(`${apiUrl}/linkedin/userupdate`)
         .then(res => res.data);
     }
   };

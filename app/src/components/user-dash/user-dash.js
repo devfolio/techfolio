@@ -9,9 +9,9 @@ export default {
   }
 };
 
-controller.$inject= ['$auth', '$window', 'tokenService'];
+controller.$inject= ['$auth', '$window', 'tokenService', 'ngDialog', '$state'];
 
-function controller($auth, window, tokenService) {
+function controller($auth, window, tokenService, ngDialog, $state) {
   this.styles = styles;
 
   window.document.cookie = `token=${tokenService.get()}`;
@@ -22,5 +22,18 @@ function controller($auth, window, tokenService) {
   // this.ghlink = !!(this.userData.ghUsername);
   // this.lilink = !!(this.userData.linkedIn);
 
+  this.updateLinkProfile = () => {
+    ngDialog.open({
+      template: '<get-linkedin success="success"></get-linkedin>',
+      plain: true, 
+      width: '90%',
+      controller: ['$scope', $scope => {
+        $scope.success = () => {
+          ngDialog.close();
+          return $state.go('userDash');
+        };
+      }]
+    });
+  };
 
 }

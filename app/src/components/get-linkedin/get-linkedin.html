@@ -1,0 +1,45 @@
+<section>
+  <h2>Updated info from LinkedIn</h2>
+  <form>
+    <input type="checkbox" ng-model="master"><label>Select All</label>
+    <ul>
+      <li>
+        <input type="checkbox" ng-checked="master" ng-model="$ctrl.selected.headline">
+        <label>Headline: {{$ctrl.linkProfile.headline}}</label>
+      </li>
+      <li>
+        <input type="checkbox"  ng-checked="master"ng-model="$ctrl.selected.profileUrl">
+        <label>Profile Url: {{$ctrl.linkProfile.profileUrl}}</label>
+      </li>
+      <li>
+        <input type="checkbox"  ng-checked="master"ng-model="$ctrl.selected.connections">
+        <label>Number of LinkedIn Connections: {{$ctrl.linkProfile.connections}}</label>
+      </li>
+      <li>
+        <input type="checkbox"  ng-checked="master"ng-model="$ctrl.selected.pictureUrl">
+        <label>Profile Picture: <img src="{{$ctrl.linkProfile.pictureUrl}}" alt=""></label>
+      </li>
+      <li>Positions:
+        <ul>
+          <li>
+            <input type="checkbox"  ng-checked="master"ng-model="$ctrl.selected.positionTitle">
+            <label>Last or Current Position: {{$ctrl.linkProfile.positionTitle}}</label>
+          </li>
+          <li>
+            <input type="checkbox"  ng-checked="master"ng-model="$ctrl.selected.positionCompany">
+            <label>Company: {{$ctrl.linkProfile.positionCompany}}</label>
+          </li>
+          <li>
+            <input type="checkbox"  ng-checked="master"ng-model="$ctrl.selected.positionLocation">
+            <label>Location: {{$ctrl.linkProfile.positionLocation}}</label>
+          </li>
+          <li>
+            <input type="checkbox"  ng-checked="master"ng-model="$ctrl.selected.positionSummary">
+            <label>Summary: {{$ctrl.linkProfile.positionSummary}}</label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <button ng-click="$ctrl.submit()">Save Settings</button>
+  </form>
+</section>

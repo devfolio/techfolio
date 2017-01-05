@@ -1,9 +1,14 @@
-githubService.$inject = ['$http', 'ghUrl'];
+githubService.$inject = ['$http', 'apiUrl'];
 
-export default function githubService($http, ghUrl) {
+export default function githubService($http, apiUrl) {
   return {
-    getProfile(ghaccess) {
-      return $http.get(`${ghUrl}/user?access_token=${ghaccess}`)
+    getProfile() {
+      return $http.get(`${apiUrl}/github/profile`)
+        .then(res => res.data);
+    },
+
+    getRepos() {
+      return $http.get(`${apiUrl}/github/repos`)
         .then(res => res.data);
     }
   };

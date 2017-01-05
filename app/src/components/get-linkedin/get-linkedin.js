@@ -27,12 +27,6 @@ function controller(linkedinService){
   this.styles = styles;  
   this.linkProfile = {};
 
-  this.check = () => {
-    Object.keys(this.linkProfile).forEach(key => {
-      if(!this.selected[key]) delete this.linkProfile[key];
-    });
-  };
-
   linkedinService.get()
     .then(profile => {
       this.linkProfile = profile;

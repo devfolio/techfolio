@@ -9,11 +9,16 @@ export default {
   }
 };
 
-controller.$inject = ['ngDialog', '$state'];
+controller.$inject= ['$auth', '$window', 'tokenService', 'ngDialog'];
 
-function controller(ngDialog, $state) {
+function controller($auth, window, tokenService, ngDialog) {
   this.styles = styles;
-  // console.log(this.userData);
+
+  window.document.cookie = `token=${tokenService.get()}`;
+  this.authenticate = provider => {
+    $auth.authenticate(provider);
+  };
+
   // this.ghlink = !!(this.userData.ghUsername);
   // this.lilink = !!(this.userData.linkedIn);
 

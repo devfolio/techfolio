@@ -4,8 +4,10 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'home',
-    url: '/home',
-    // abstract: true,
+    url: '/',
+    data: {
+      public: true
+    },
     component: 'home'
   });
 
@@ -50,20 +52,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
       }]
     },
     component: 'userDash'
-  });
-
-  $stateProvider.state({
-    name: 'userDash.linkedIn',
-    url: '/linkedIn',
-    abstract: true,
-    component: 'linkedIn'
-  });
-
-  $stateProvider.state({
-    name: 'userDash.github',
-    url: '/github',
-    abstract: true,
-    component: 'github'
   });
 
   $stateProvider.state({

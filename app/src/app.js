@@ -8,11 +8,13 @@ import satellizer from 'satellizer';
 import oauth from './auth/oauth';
 
 import uiRouter from 'angular-ui-router';
+import resource from 'angular-resource';
 import 'angular-ui-router/release/stateEvents';
 
 import dialog from 'ng-dialog';
 import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
+import 'angular-material/angular-material.css';
 
 import routes from './routes';
 import http from './auth/http';
@@ -22,8 +24,9 @@ const app = angular.module('TechFolio', [
   components,
   services, 
   uiRouter,
-  dialog,
+  resource,
   angular.module('ui.router.state.events').name,
+  dialog,
   satellizer
 ]);
 

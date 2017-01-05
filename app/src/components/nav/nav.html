@@ -1,0 +1,9 @@
+<header class="links">
+    <div>
+        <a ui-sref="userDash">Profile</a>
+        <!--<a ui-sref="blog">Blog</a>-->
+        <a ui-sref="about">About TechFolio</a>
+        <span ng-if="!$ctrl.hastoken"><a href="#" ng-click="$ctrl.signin()">Sign In</a></span>
+        <span ng-if="$ctrl.hastoken"><a href="#" ng-click="$ctrl.signout()">Sign Out</a></span>
+    </div>
+</header>

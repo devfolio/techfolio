@@ -3,6 +3,7 @@ const User = require('../../models/user');
 const request = require('request');
 const jsonParser = require('body-parser').json();
 const token = require('../../auth/token');
+const ensureToken = require('../../auth/ensure-token');
 
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET;
 const LINKEDIN_CLIENTID = process.env.LINKEDIN_CLIENTID;
@@ -31,9 +32,9 @@ router.post('/', jsonParser, function(req, res) {
       format: 'json'
     };
     let userToken = req.headers.authorization;
-    //Token hack until we can pass token through headers in Satellizer
+
     token.verify(userToken)
-      .then(({id}) => User.findById(id) )
+      .then(({id}) => User.findById(id))
       .then(user => {
         user.liAccess.oauth2_access_token = params.oauth2_access_token;
         user.liAccess.format = params.format;
@@ -44,5 +45,18 @@ router.post('/', jsonParser, function(req, res) {
   });
 
 });
+
+router.get('/:token', ensureToken, (req, res) => {
+  let user = User.findById(req.user.id);
+  let profileUrl = 'https://api.linkedin.com/v1/people/~';
+  let params = {
+    oauth2_access_token: user.liAccess.oauth2_access_token,
+    format: user.liAccess.format
+  };
+
+  request.get({url: profileUrl, qs: params, json: true}, (err, response, profile) => {
+
+  })
+} )
 
 module.exports = router;

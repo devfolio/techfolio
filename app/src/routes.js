@@ -63,6 +63,9 @@ export default function routes($stateProvider, $urlRouterProvider) {
     name: 'userDash.github',
     url: '/github',
     abstract: true,
+    resolve: {
+      ghProfile: ['githubService', gS => { return gS.getProfile().$promise; } ]
+    },
     component: 'github'
   });
 

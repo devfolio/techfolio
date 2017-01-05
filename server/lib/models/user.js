@@ -23,8 +23,7 @@ const userSchema = new Schema({
   linkedIn: {
     type: Schema.Types.ObjectId,
     ref: 'LinkedIn'
-  },
-  twitter: { type: {} }
+  }
 
 });
 

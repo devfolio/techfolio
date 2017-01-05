@@ -18,7 +18,6 @@ export default function userService($http, apiUrl, tokenService) {
       tokenService.remove();
     },
     getPublicProfile(userUrl) {
-      //return {name: 'Joe Public', url: userUrl};
       return $http.get(`${apiUrl}/user/${userUrl}`)
         .then(res => {
           return res;
@@ -27,7 +26,7 @@ export default function userService($http, apiUrl, tokenService) {
     getProfile() {
       return $http.get(`${apiUrl}/auth/`)
         .then(res => {
-          return res;
+          return res.data;
         });
     }
   };

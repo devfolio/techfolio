@@ -5,7 +5,7 @@ const jsonParser = require('body-parser').json();
 const token = require('../../auth/token');
 
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET;
-const LINKEDIN_CLIENTID = process.env.LINKEDIN_CLIENTID
+const LINKEDIN_CLIENTID = process.env.LINKEDIN_CLIENTID;
 
 router.get('/', (req, res) => {
   res.send('Successful - Redirecting...');

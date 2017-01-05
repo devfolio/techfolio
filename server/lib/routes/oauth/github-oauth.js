@@ -35,6 +35,25 @@ router
     .catch(err => next(err));
 })
 
+.get('/repos', ensureToken, (req, res, next) => {
+  User.findById(req.user.id)
+    .select('ghaccess')
+    .then(user => {
+      return new Promise((resolve, reject) => {
+        request.get({
+          url: `${ghUrl}/user/repos?access_token=${user.ghaccess}`,
+          headers: { 'User-Agent': 'Devfolio' }
+        },
+          (err, response, body) => {
+            if(err) return reject({'error': err});
+            resolve(body);
+          });
+      });
+    })
+    .then(body => { res.send(body); })
+    .catch(err => next(err));
+})
+
 .post('/', jsonParser, function(req, res, next) {
   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
   var params = {

@@ -53,20 +53,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'userDash.linkedIn',
-    url: '/linkedIn',
-    abstract: true,
-    component: 'linkedIn'
-  });
-
-  $stateProvider.state({
-    name: 'userDash.github',
-    url: '/github',
-    abstract: true,
-    component: 'github'
-  });
-
-  $stateProvider.state({
     name: 'blog',
     url: '/blog',
     component: 'blog'

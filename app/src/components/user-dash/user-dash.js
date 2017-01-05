@@ -9,9 +9,9 @@ export default {
   }
 };
 
-controller.$inject= ['$auth', '$window', 'tokenService', 'ngDialog'];
+controller.$inject= ['$auth', '$window', 'tokenService', 'ngDialog', '$state'];
 
-function controller($auth, window, tokenService, ngDialog) {
+function controller($auth, window, tokenService, ngDialog, $state) {
   this.styles = styles;
 
   window.document.cookie = `token=${tokenService.get()}`;

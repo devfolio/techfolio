@@ -20,11 +20,13 @@ router
   User.findById(req.user.id)
     .select('ghaccess')
     .then(user => {
-      request.get({url: `${ghUrl}/user?access_token=${user.ghaccess}`}, 
-        (err, response, body) => {
-          if(err) return next(err);
-          return body;
-        });
+      return new Promise((resolve, reject) => {
+        request.get({url: `${ghUrl}/user?access_token=${user.ghaccess}`, headers: {'User-Agent': 'Devfolio'}}, 
+          (err, response, body) => {
+            if(err) return reject({'error': err});
+            resolve(body);
+          });
+      });
     })
     .then(body => {
       res.send(body);

@@ -27,7 +27,8 @@ export default function userService($http, apiUrl, tokenService) {
     getProfile() {
       return $http.get(`${apiUrl}/auth/`)
         .then(res => {
-          return res;
+          console.log('userService getProfile',res);
+          return res.data;
         });
     }
   };

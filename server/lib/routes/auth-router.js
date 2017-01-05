@@ -9,7 +9,7 @@ router
 
   .get('/', ensureToken, (req, res, next) => {
     User.findById(req.user.id)
-      .select('-ghaccess -liAccess')
+      .select('-ghaccess -liAccess -_id -password')
       .populate({ path: 'Github' })
       .populate({ path: 'LinkedIn' })
       .lean()

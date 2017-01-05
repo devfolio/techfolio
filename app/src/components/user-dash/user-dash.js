@@ -11,9 +11,9 @@ export default {
 
 function controller() {
   this.styles = styles;
-
-  this.ghlink = !!(this.userData.ghUsername);
-  this.lilink = !!(this.userData.linkedIn);
+  console.log(this.userData);
+  // this.ghlink = !!(this.userData.ghUsername);
+  // this.lilink = !!(this.userData.linkedIn);
 
 
 }

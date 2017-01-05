@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const User = require('../../models/user');
-// const ensureToken = require('../../auth/ensure-token')();
+const ensureToken = require('../../auth/ensure-token')();
 const request = require('request');
 const jsonParser = require('body-parser').json();
 const qs = require('qs');
@@ -8,12 +8,31 @@ const token = require('../../auth/token');
 
 const GITHUB_SECRET = process.env.GITHUB_SECRET;
 const GITHUB_CLIENTID = process.env.GITHUB_CLIENTID;
+const ghUrl = 'https://api.github.com';
 
-router.get('/', (req, res) => {
+router
+
+.get('/', (req, res) => {
   res.send('Successful - Redirecting...');
-});
+})
 
-router.post('/', jsonParser, function(req, res, next) {
+.get('/profile', ensureToken, (req, res, next) => {
+  User.findById(req.user.id)
+    .select('ghaccess')
+    .then(user => {
+      request.get({url: `${ghUrl}/user?access_token=${user.ghaccess}`}, 
+        (err, response, body) => {
+          if(err) return next(err);
+          return body;
+        });
+    })
+    .then(body => {
+      res.send(body);
+    })
+    .catch(err => next(err));
+})
+
+.post('/', jsonParser, function(req, res, next) {
   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
   var params = {
     code: req.body.code,
@@ -36,7 +55,7 @@ router.post('/', jsonParser, function(req, res, next) {
         user.save();
         res.send();
       })
-      .catch(err => console.log(err));
+      .catch(err => next(err));
 
   });
 

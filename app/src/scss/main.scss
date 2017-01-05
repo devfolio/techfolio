@@ -1,4 +1,48 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
 
+h3 {
+  color: darkslateblue;
+}
+
+/* Link Styles */
+a, a:link, a:active {
+  text-decoration: none;
+}
+
+header {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  background-color: darkslateblue;
+  height: 8%;
+  min-height: 50px;
+
+  div {
+    position: absolute;
+    right: 0;
+  }
+
+  a {
+    display: inline-block;
+    height: 8%;
+    min-height: 50px;
+    margin: auto;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: white;
+  }
+
+  a:hover {
+    background: slateblue;
+  }
+}
 
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
@@ -6,10 +50,20 @@
   box-sizing: border-box;
 }
 
-// body {
-//   max-width: 940px;
-//   margin: 0 auto;
-// }
+.boxshadow {
+  outline: solid 1px #ccc;
+  box-shadow: 1px 2px 8px #bbb
+}
+
+.module {
+  font-family: 'Raleway', sans-serif;
+
+  p {
+    font-size: .9em;
+  }
+}
+
+/* Grid layout styling */
 
 $pad: 20px;
 

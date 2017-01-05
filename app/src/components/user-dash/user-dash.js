@@ -9,11 +9,29 @@ export default {
   }
 };
 
-function controller() {
+controller.$inject = ['ngDialog', '$state'];
+
+function controller(ngDialog, $state) {
   this.styles = styles;
-  console.log(this.userData);
+  // console.log(this.userData);
   // this.ghlink = !!(this.userData.ghUsername);
   // this.lilink = !!(this.userData.linkedIn);
 
+  this.linkedinData = {};
+
+  this.updateLinkProfile = () => {
+    ngDialog.open({
+      template: '<get-linkedin success="success"></get-linkedin>',
+      plain: true, 
+      width: '75%',
+      controller: ['$scope', $scope => {
+        $scope.success = (linkData) => {
+          this.linkedinData = linkData;
+          ngDialog.close();
+          return $state.go('user-dash');
+        };
+      }]
+    });
+  };
 
 }

@@ -68,7 +68,6 @@ router
     
     let userToken = req.headers.authorization;
     accessToken = qs.parse(accessToken);
-    console.log(accessToken);
 
     //Token hack until we can pass token through headers in Satellizer
     token.verify(userToken)

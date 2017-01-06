@@ -16,7 +16,7 @@ export default function oauth($authProvider, apiUrl) {
     url: `${apiUrl}/linkedin/`,
     authorizationEndpoint: 'https://www.linkedin.com/oauth/v2/authorization',
     clientId: process.env.LINKEDIN_CLIENTID,
-    redirectUri: `${currentLocation}/linkedin/`,
+    redirectUri: 'https://techfolio.herokuapp.com/linkedin/',
     state: 'Devfolio'
   });
 }

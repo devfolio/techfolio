@@ -30,7 +30,7 @@ export default function userService($http, apiUrl, tokenService) {
         });
     },
     saveForm(userData) {
-      return $http.post(`${apiUrl}/auth/formdata`, userData)
+      return $http.post(`${apiUrl}/auth/personal`, userData)
       .then(res => {
         return res.data;
       });

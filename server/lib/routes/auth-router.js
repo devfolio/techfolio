@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bodyParser = require('body-parser').json();
 const User = require('../models/user');
+const PersonalInfo = require('../models/personal-info');
 const token = require('../auth/token');
 const ensureLogin = require('../auth/ensure-login')();
 const ensureToken = require('../auth/ensure-token')();
@@ -64,6 +65,28 @@ router
       })
       .then(token => res.send({ token }))
       .catch(next);
+  })
+
+  .post('/personal', ensureToken, bodyParser, (req, res, next) => {
+
+    User.findById(req.user.id)
+      .then(user => {
+        if(user.personalInfo) {
+          PersonalInfo.findByIdAndUpdate(user.personalInfo, req.body)
+            .then(() => res.send(user));
+        } else {
+          new PersonalInfo(req.body)
+            .save()
+            .then(profile => {
+              user.personalInfo = profile._id;
+              return user.save();
+            })
+            .then(user => {
+              res.send(user);
+            });
+        }
+      })
+      .catch(err => next(err));
   });
 
 module.exports = router; 

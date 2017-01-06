@@ -13,8 +13,9 @@ app.use(morgan('dev'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
+    console.log('Header', req.headers['x-forwarded-proto']);
     // if they request with https don't do anything special
-    if (req.get['x-forwarded-proto'] === 'https') next();  //aka res.headers
+    if (req.headers['x-forwarded-proto'] === 'https') next();  //aka res.headers
     // if just http, redirect to https
     else res.redirect(`https://${req.hostname}${req.url}`);
   });
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
   res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   next();
 });
+
 
 app.use(express.static('./public'));
 

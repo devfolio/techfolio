@@ -31,7 +31,7 @@ const app = angular.module('TechFolio', [
 ]);
 
 
-app.constant('apiUrl', 'http://localhost:3500');
+app.constant('apiUrl', 'https://localhost:3500');
 app.value('ghUrl', 'http://api.github.com');
 
 app.config(oauth);

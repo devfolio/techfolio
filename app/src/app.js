@@ -32,7 +32,7 @@ const app = angular.module('TechFolio', [
 
 
 app.constant('apiUrl', 'https://localhost:3500');
-app.value('ghUrl', 'http://api.github.com');
+app.value('ghUrl', 'https://api.github.com');
 
 app.config(oauth);
 app.config(http);

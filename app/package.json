@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/dchasepdx/pet-store/issues"
   },
+  "engines": {
+    "node": "6.8.1"
+  },
   "homepage": "https://github.com/dchasepdx/pet-store",
   "devDependencies": {
     "angular-mocks": "^1.6.0",

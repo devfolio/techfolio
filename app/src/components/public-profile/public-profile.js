@@ -10,10 +10,12 @@ export default {
   }
 };
 
+controller.inject = [];
 
 function controller() {
   this.styles = styles;
 
-  console.log('Profile: ', this.profile);
+  console.log(this.profile.github.savedRepos);
+
 
 }

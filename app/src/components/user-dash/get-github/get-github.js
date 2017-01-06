@@ -44,7 +44,8 @@ function controller (githubService) {
       bio: this.profile.bio,
       website: this.profile.blog,
       memberSince: this.profile.created_at,
-      savedRepos: this.savedRepos
+      savedRepos: this.savedRepos,
+      ghEmail: this.profile.email
     });
   };
 

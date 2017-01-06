@@ -106,8 +106,8 @@
 	
 	var app = _angular2.default.module('TechFolio', [_components2.default, _services2.default, _angularUiRouter2.default, _angularResource2.default, _angular2.default.module('ui.router.state.events').name, _ngDialog2.default, _satellizer2.default]);
 	
-	app.constant('apiUrl', 'http://localhost:3500');
-	app.value('ghUrl', 'http://api.github.com');
+	app.constant('apiUrl', ('') != null ? ('') : 'https://localhost:3500');
+	app.value('ghUrl', 'https://api.github.com');
 	
 	app.config(_oauth2.default);
 	app.config(_http2.default);
@@ -34144,7 +34144,8 @@
 	      bio: _this.profile.bio,
 	      website: _this.profile.blog,
 	      memberSince: _this.profile.created_at,
-	      savedRepos: _this.savedRepos
+	      savedRepos: _this.savedRepos,
+	      ghEmail: _this.profile.email
 	    });
 	  };
 	
@@ -34345,16 +34346,16 @@
 	};
 	
 	
-	controller.$inject = ['githubService'];
+	controller.$inject = ['userService'];
 	
-	function controller(githubService) {
+	function controller(userService) {
 	  var _this = this;
 	
 	  this.styles = _github4.default;
 	  this.loading = true;
 	
 	  this.$onInit = function () {
-	    githubService.getProfile().then(function (profile) {
+	    userService.getProfile().then(function (profile) {
 	      _this.loading = false;
 	      _this.profile = profile;
 	    });
@@ -34365,7 +34366,7 @@
 /* 45 */
 /***/ function(module, exports) {
 
-	module.exports = "<section ng-class=\"$ctrl.styles\">\r\n\r\n    <div class=\"loader\" ng-if=\"$ctrl.loading\">\r\n        <h1>Loading</h1>\r\n    </div>\r\n    <div class=\"box\"ng-if=\"!$ctrl.loading\">\r\n        <p>Username: {{$ctrl.profile.login}}</p>\r\n        <p>Github: <a href=\"{{$ctrl.profile.html_url}}\">{{$ctrl.profile.html_url}}</a></p>\r\n        <p>Number of public repos: {{$ctrl.profile.public_repos}}</p>\r\n        <p>Bio: {{$ctrl.profile.bio}}</p>\r\n        <p>Website: {{$ctrl.profile.blog}}</p>\r\n        <p nf-if=\"$ctrl.profile.email\">Email: {{$ctrl.profile.email}}</p>\r\n    </div>\r\n\r\n    <button ng-click=\"$ctrl.getRepos()\">Github Repos</button>\r\n    <div class=\"box\" ng-if=\"ctrl.repos\">\r\n        <ul ng-repeat=\"repo in $ctrl.repos\">\r\n            <li>Name: <a href=\"{{repo.html_url}}\">{{repo.name}}</a></li>\r\n            <li>Stars: {{repo.stargazers_count}}</li>\r\n            <li>Last Update: {{repo.updated_at}}</li>\r\n        </ul>\r\n    </div>\r\n</section>\r\n";
+	module.exports = "<section ng-class=\"$ctrl.styles\">\r\n\r\n    <div class=\"loader\" ng-if=\"$ctrl.loading\">\r\n        <h1>Loading</h1>\r\n    </div>\r\n    <div class=\"box\"ng-if=\"!$ctrl.loading\">\r\n        <p>Username: {{$ctrl.profile.github.userName}}</p>\r\n        <p>Github: <a href=\"{{$ctrl.profile.github.url}}\">{{$ctrl.profile.github.url}}</a></p>\r\n        <p>Number of public repos: {{$ctrl.profile.github.numRepos}}</p>\r\n        <p ng-if=\"$ctrl.profile.bio\">Bio: {{$ctrl.profile.github.bio}}</p>\r\n        <p ng-if=\"$ctrl.profile.blog\">Website: {{$ctrl.profile.github.blog}}</p>\r\n        <p ng-if=\"$ctrl.profile.email\">Email: {{$ctrl.profile.github.ghEmail}}</p>\r\n        <p ng-if=\"$ctrl.profile.github.savedRepos\" ng-repeat=\"repo in $ctrl.profile.github.savedRepos\">Saved repos: {{repo.name}}</p>\r\n    </div>\r\n\r\n    <div class=\"box\" ng-if=\"ctrl.repos\">\r\n        <ul ng-repeat=\"repo in $ctrl.repos\">\r\n            <li>Name: <a href=\"{{repo.html_url}}\">{{repo.name}}</a></li>\r\n            <li>Stars: {{repo.stargazers_count}}</li>\r\n            <li>Last Update: {{repo.updated_at}}</li>\r\n        </ul>\r\n    </div>\r\n</section>\r\n";
 
 /***/ },
 /* 46 */

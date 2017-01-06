@@ -2,6 +2,12 @@
     <nav></nav>
 
     <div class="boxshadow profileboxes">
+        <h2>Personal Info</h2>
+        <button ng-click="$ctrl.personalForm()" class="github">Update Personal Info</button>
+        <saved-personal></saved-personal>
+    </div>
+
+    <div class="boxshadow profileboxes">
         <h2>LinkedIn</h2>
         <div class="inline">
             <button ng-click="$ctrl.authenticate('linkedin')" class="github">Sign in with LinkedIn</button>

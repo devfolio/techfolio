@@ -13,6 +13,8 @@ function controller(linkedinService) {
 
   this.savedLink = {};
 
-  linkedinService.getSaved()
-    .then(saved => this.savedLink = saved);
+  this.$onInit = () => {
+    linkedinService.getSaved()
+      .then(saved => this.savedLink = saved);
+  };
 }

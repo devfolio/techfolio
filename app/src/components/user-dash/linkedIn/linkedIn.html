@@ -2,7 +2,7 @@
   <h2>LinkedIn Saved Profile Information</h2>
   <ul>
     <li ng-if=$ctrl.savedLink.pictureUrl>
-      <label><strong>Profile Picture: </strong><img ng-src="{{$ctrl.savedLink.pictureUrl}}" alt=""></label>
+      <label><strong>Profile Picture: </strong><img ng-src={{$ctrl.savedLink.pictureUrl}} alt=""></label>
     </li>
     <li ng-if="$ctrl.savedLink.headline">
       <label><strong>Headline:</strong> {{$ctrl.savedLink.headline}}</label>

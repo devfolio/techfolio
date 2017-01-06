@@ -6,7 +6,7 @@
     <ul>
       <li ng-if="$ctrl.linkProfile.pictureUrl">
         <input type="checkbox" ng-model="$ctrl.selected.pictureUrl">
-        <label><strong>Profile Picture: </strong><img src="{{$ctrl.linkProfile.pictureUrl}}" alt=""></label>
+        <label><strong>Profile Picture: </strong><img src={{$ctrl.linkProfile.pictureUrl}} alt=""></label>
       </li>
       <li ng-if="$ctrl.linkProfile.headline">
         <input type="checkbox" ng-model="$ctrl.selected.headline">

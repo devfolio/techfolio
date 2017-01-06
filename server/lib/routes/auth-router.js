@@ -11,8 +11,8 @@ router
   .get('/', ensureToken, (req, res, next) => {
     User.findById(req.user.id)
       .select('-ghaccess -liAccess -_id -password')
-      .populate({ path: 'Github' })
-      .populate({ path: 'LinkedIn' })
+      .populate({ path: 'github' })
+      .populate({ path: 'linkedIn' })
       .lean()
       .then(user => {
         res.send(user);

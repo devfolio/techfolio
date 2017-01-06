@@ -11,7 +11,7 @@ const userSchema = new Schema({
   location: String,
   userUrl: String,
   ghaccess: String,
-  ghUsername: String, 
+  ghUsername: String,
   github: { 
     type: Schema.Types.ObjectId, 
     ref: 'Github'

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start --single-run",
     "start": "webpack-dev-server --inline",
-    "build": "webpack",
+    "build": "webpack --define process.env.API_URL='\"\"'",
     "test:watch": "karma start",
     "update-webdriver": "webdriver-manager update",
     "e2e": "protractor",

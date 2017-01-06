@@ -30,11 +30,11 @@
                 <h3>LinkedIn</h3>
                 <h4>{{$ctrl.profile.linkedIn.headline}}</h4>
                 <p>{{$ctrl.profile.linkedIn.profileUrl}}</p>
-                <p>{{$ctrl.profile.linkedIn.positionTitle}}</p>
-                <p>{{$ctrl.profile.linkedIn.positionCompany}}</p>
-                <p>{{$ctrl.profile.linkedIn.positionLocation}}</p>
-                <p>{{$ctrl.profile.linkedIn.positionSummary}}</p>
-                <p>{{$ctrl.profile.linkedIn.connections}}</p>
+                <p ng-if="$ctrl.profile.linkedIn.positionTitle!=='false'">{{$ctrl.profile.linkedIn.positionTitle}}</p>
+                <p ng-if="$ctrl.profile.linkedIn.positionCompany!=='false'">{{$ctrl.profile.linkedIn.positionCompany}}</p>
+                <p ng-if="$ctrl.profile.linkedIn.positionLocation!=='false'">{{$ctrl.profile.linkedIn.positionLocation}}</p>
+                <p ng-if="$ctrl.profile.linkedIn.positionSummary!=='false'">{{$ctrl.profile.linkedIn.positionSummary}}</p>
+                <p ng-if="$ctrl.profile.linkedIn.connections!=='false'">{{$ctrl.profile.linkedIn.connections}}</p>
             </article>
         </div>
 

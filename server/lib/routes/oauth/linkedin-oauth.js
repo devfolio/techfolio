@@ -41,7 +41,6 @@ router
         });
       })
       .then(profile => {
-        console.log('then profile', profile);
         let modProfile = {
           headline: profile.headline,
           connections: profile.numConnections,
@@ -77,7 +76,7 @@ router
       code: req.body.code,
       client_id: LINKEDIN_CLIENTID,
       client_secret: LINKEDIN_SECRET,
-      redirect_uri: 'http://localhost:8080/linkedin/',
+      redirect_uri: 'https://techfolio.herokuapp.com/linkedin/',
       grant_type: 'authorization_code'
     };
 

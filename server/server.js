@@ -1,4 +1,4 @@
-require('dotenv').load();
+require('dotenv').load({silent: true});
 const app = require('./lib/app');
 const http = require('http');
 require('./lib/setup-mongoose');

@@ -12,6 +12,9 @@
 
         <div class="boxes boxshadow">
             <article class="module profile">
+                <div  class="center" ng-if="$ctrl.profile.linkedIn.pictureUrl">
+                    <img ng-src={{$ctrl.profile.linkedIn.pictureUrl}}>
+                </div>
                 <h3>{{$ctrl.profile.firstName}}{{$ctrl.profile.lastName}}</h3>
                 <p ng-if="$ctrl.profile.location">{{$ctrl.profile.location}}</p>
                 <a href="mailto:{{$ctrl.profile.email}}?Subject=Nice%20TechFolio"
@@ -25,6 +28,7 @@
         <div class="boxes boxshadow">
             <article class="module">
                 <h3>LinkedIn</h3>
+                <h4>{{$ctrl.profile.linkedIn.headline}}</h4>
                 <p>data here</p>
             </article>
         </div>

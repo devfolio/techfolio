@@ -10,18 +10,10 @@ export default {
   }
 };
 
-controller.inject = ['userService'];
+controller.inject = [];
 
-function controller(userService) {
+function controller() {
   this.styles = styles;
 
-  this.profile = {};
-
-  this.$onInit = () => {
-    userService.getPublicProfile(this.userUrl)
-      .then(profile => {
-        this.profile = profile;
-      });
-  };
 
 }

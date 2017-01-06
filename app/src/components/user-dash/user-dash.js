@@ -34,7 +34,7 @@ function controller($auth, window, tokenService, ngDialog, $state, githubService
       controller: ['$scope', $scope => {
         $scope.success = () => {
           ngDialog.close();
-          return $state.go('home');
+          return $state.go('userDash');
         };
       }]
     });

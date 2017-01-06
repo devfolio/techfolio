@@ -30,7 +30,8 @@ function controller($auth, window, tokenService, ngDialog, $state) {
       controller: ['$scope', $scope => {
         $scope.success = () => {
           ngDialog.close();
-          return $state.go('userDash');
+          ngDialog.setForceBodyReload(true);
+          return $state.go('home');
         };
       }]
     });

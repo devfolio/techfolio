@@ -52,11 +52,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
         return userService.getProfile();
       }]
     },
-    params: {
-      linkedIn: {
-        dynameic: true
-      }
-    },
     component: 'userDash'
   });
 

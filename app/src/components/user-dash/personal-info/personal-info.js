@@ -19,6 +19,7 @@ function controller(userService) {
       graduation2: this.gradyear2,
       vocschool: this.vocschool,
       certification: this.certification,
+      graduation3: this.gradyear3,
       skills: this.skills,
       twitter: this.twitter,
       facebook: this.facebook

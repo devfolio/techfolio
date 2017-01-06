@@ -24,7 +24,7 @@ function controller(linkedinService){
     connections: false,
     pictureUrl: false,
     profileUrl: true,
-    profileSummary: true
+    summary: true
   };
   this.linkProfile = {};
 

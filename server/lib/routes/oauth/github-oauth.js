@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../../models/user');
+const Github = require('../../models/github');
 const ensureToken = require('../../auth/ensure-token')();
 const request = require('request');
 const jsonParser = require('body-parser').json();
@@ -52,6 +53,12 @@ router
     })
     .then(body => { res.send(body); })
     .catch(err => next(err));
+})
+
+.post('/repos', ensureToken, jsonParser, (req, res, next) => {
+  new Github(req.body).save()
+    .then((saved) => res.send(saved))
+    .catch(next);
 })
 
 .post('/', jsonParser, function(req, res, next) {

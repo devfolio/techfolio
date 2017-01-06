@@ -5,13 +5,13 @@ export default {
   template,
   controller,
   bindings: {
-    userData: '='   // putting a 2-way binding because I think we want to update this
+    userData: '='
   }
 };
 
-controller.$inject= ['$auth', '$window', 'tokenService', 'ngDialog', '$state'];
+controller.$inject= ['$auth', '$window', 'tokenService', 'ngDialog', '$state', 'githubService'];
 
-function controller($auth, window, tokenService, ngDialog, $state) {
+function controller($auth, window, tokenService, ngDialog, $state, githubService) {
   this.styles = styles;
 
   window.document.cookie = `token=${tokenService.get()}`;
@@ -19,13 +19,31 @@ function controller($auth, window, tokenService, ngDialog, $state) {
     $auth.authenticate(provider);
   };
 
-  // this.ghlink = !!(this.userData.ghUsername);
-  // this.lilink = !!(this.userData.linkedIn);
+  this.$onInit = () => {
+    githubService.getProfile()
+      .then(profile => {
+        this.profile = profile;
+      });
+  };
 
   this.updateLinkProfile = () => {
     ngDialog.open({
       template: '<get-linkedin success="success"></get-linkedin>',
       plain: true, 
+      width: '90%',
+      controller: ['$scope', $scope => {
+        $scope.success = () => {
+          ngDialog.close();
+          return $state.go('userDash');
+        };
+      }]
+    });
+  };
+
+  this.updateGithubProfile = () => {
+    ngDialog.open({
+      template: '<get-github success="success"></get-github>',
+      plain: true,
       width: '90%',
       controller: ['$scope', $scope => {
         $scope.success = () => {

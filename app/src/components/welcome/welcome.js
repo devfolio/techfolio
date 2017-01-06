@@ -5,12 +5,15 @@ export default {
   controller
 };
 
-controller.$inject= ['$auth', '$window', 'tokenService'];
+controller.$inject= ['$auth', 'linkedinService'];
 
-function controller($auth, window, tokenService){
-  
-  window.document.cookie = `token=${tokenService.get()}`;
+function controller($auth, linkedinService){
+
   this.authenticate = provider => {
     $auth.authenticate(provider);
+  };
+
+  this.getLinkedIn = () => {
+    linkedinService.get();
   };
 }

@@ -1,5 +1,7 @@
 <section ng-class="$ctrl.styles">
-    <button ng-click="$ctrl.getProfile()">github profile</button>
+    <br/>
+    <br/>
+    <button class="github" ng-click="$ctrl.getProfile()">github profile</button>
 
     <div class="loader" ng-if="$ctrl.loading">
         <h1>Loading</h1>
@@ -14,5 +16,5 @@
     </div>
 
 
-    <button ng-click="$ctrl.getRepos()">github repos</button>
+    <button class="github" ng-click="$ctrl.getRepos()">github repos</button>
 </section>

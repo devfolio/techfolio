@@ -56,9 +56,24 @@ router
 })
 
 .post('/repos', ensureToken, jsonParser, (req, res, next) => {
-  new Github(req.body).save()
-    .then((saved) => res.send(saved))
-    .catch(next);
+  User.findById(req.user.id)
+    .then(user => {
+      if(user.github) {
+        Github.findByIdAndUpdate(user.github, req.body)
+          .then(() => res.send(user));
+      } else {
+        new Github(req.body)
+          .save()
+          .then(profile => {
+            user.github = profile._id;
+            return user.save();
+          })
+          .then(user => {
+            res.send(user);
+          });
+      }
+    })
+    .catch(err => next(err));
 })
 
 .post('/', jsonParser, function(req, res, next) {

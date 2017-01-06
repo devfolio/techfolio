@@ -1,0 +1,49 @@
+<section >
+  <h2>Updated info from LinkedIn</h2>
+  <h3>Check the fields you would like to save to your profile.</h3>
+  <button ng-click="$ctrl.submit()" class="github">Submit</button>
+  <form class="box">
+    <ul>
+      <li ng-if="$ctrl.linkProfile.pictureUrl">
+        <input type="checkbox" ng-model="$ctrl.selected.pictureUrl">
+        <label><strong>Profile Picture: </strong><img src="{{$ctrl.linkProfile.pictureUrl}}" alt=""></label>
+      </li>
+      <li ng-if="$ctrl.linkProfile.headline">
+        <input type="checkbox" ng-model="$ctrl.selected.headline">
+        <label><strong>Headline:</strong> {{$ctrl.linkProfile.headline}}</label>
+      </li>
+      <li ng-if="$ctrl.linkProfile.profileUrl">
+        <input type="checkbox" ng-model="$ctrl.selected.profileUrl">
+        <label><strong>Profile Url:</strong> {{$ctrl.linkProfile.profileUrl}}</label>
+      </li>
+      <li ng-if="$ctrl.linkProfile.connections">
+        <input type="checkbox" ng-model="$ctrl.selected.connections">
+        <label><strong>Number of LinkedIn Connections:</strong> {{$ctrl.linkProfile.connections}}</label>
+      </li>
+      <li ng-if="$ctrl.linkProfile.summary">
+        <input type="checkbox" ng-model="$ctrl.selected.summary">
+        <label><strong>Profile Summary:</strong> {{$ctrl.linkProfile.summary}}</label>
+      </li>
+      <li ng-if="$ctrl.linkProfile.positionTitle"><h3>Positions:</h3>
+        <ul>
+          <li  ng-if="$ctrl.linkProfile.positionTitle">
+            <input type="checkbox" ng-model="$ctrl.selected.positionTitle">
+            <label><strong>Last or Current Position:</strong> {{$ctrl.linkProfile.positionTitle}}</label>
+          </li>
+          <li ng-if="$ctrl.linkProfile.positionCompany">
+            <input type="checkbox" ng-model="$ctrl.selected.positionCompany">
+            <label><strong>Company:</strong> {{$ctrl.linkProfile.positionCompany}}</label>
+          </li>
+          <li ng-if="$ctrl.linkProfile.positionLocation">
+            <input type="checkbox" ng-model="$ctrl.selected.positionLocation">
+            <label><strong>Location:</strong> {{$ctrl.linkProfile.positionLocation}}</label>
+          </li>
+          <li ng-if="$ctrl.linkProfile.positionSummary">
+            <input type="checkbox" ng-model="$ctrl.selected.positionSummary">
+            <label><strong>Summary:</strong> {{$ctrl.linkProfile.positionSummary}}</label>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </form>
+</section>

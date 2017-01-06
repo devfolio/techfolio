@@ -52,7 +52,7 @@ header {
 
 .boxshadow {
   outline: solid 1px #ccc;
-  box-shadow: 1px 2px 8px #bbb
+  box-shadow: 1px 2px 8px #bbb;
 }
 
 .module {
@@ -87,15 +87,14 @@ $pad: 20px;
   background-color: white;
   color: darkslateblue;
   font-weight: 500;
-  padding: 4px 6px;
+  padding: 4px 12px;
   margin-right: 10px;
 }
 .welcome:hover {
-  background-color: skyblue;
+  background-color: aliceblue;
   font-weight: 600;
-  font-style: oblique;
   padding: 4px 6px;
-  margin-right: 10px;
+  box-shadow: 2px 2px 3px #aaa;
 }
 
 .signin {
@@ -104,13 +103,13 @@ $pad: 20px;
   background-color: white;
   color: darkslateblue;
   font-weight: 500;
-  padding: 4px 6px;
+  padding: 4px 12px;
 }
 .signin:hover {
-  background-color: skyblue;
+  background-color: aliceblue;
   font-weight: 600;
-  font-style: oblique;
   padding: 4px 6px;
+  box-shadow: 2px 2px 3px #aaa;
 }
 
 .github {
@@ -119,13 +118,13 @@ $pad: 20px;
   background-color: white;
   color: darkslateblue;
   font-weight: 500;
-  padding: 4px 6px;
+  padding: 4px 12px;
 }
 .github:hover {
-  background-color: skyblue;
+  background-color: aliceblue;
   font-weight: 600;
-  font-style: oblique;
   padding: 4px 6px;
+  box-shadow: 2px 2px 3px #aaa;
 }
 
 // grid & column styling

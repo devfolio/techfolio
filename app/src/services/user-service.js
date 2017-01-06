@@ -28,6 +28,12 @@ export default function userService($http, apiUrl, tokenService) {
         .then(res => {
           return res.data;
         });
+    },
+    saveForm(userData) {
+      return $http.post(`${apiUrl}/auth/formdata`, userData)
+      .then(res => {
+        return res.data;
+      });
     }
   };
 }

@@ -20,6 +20,7 @@ export default function userService($http, apiUrl, tokenService) {
     getPublicProfile(userUrl) {
       return $http.get(`${apiUrl}/user/${userUrl}`)
         .then(res => {
+          console.log(res.data);
           return res.data;
         });
     },

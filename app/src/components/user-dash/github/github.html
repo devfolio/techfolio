@@ -1,5 +1,6 @@
 <section ng-class="$ctrl.styles">
-    <button ng-click="$ctrl.getProfile()">github profile</button>
+    <br/>
+    <button class="github" ng-click="$ctrl.getProfile()">github profile</button>
 
     <div class="loader" ng-if="$ctrl.loading">
         <h1>Loading</h1>
@@ -13,7 +14,7 @@
         <p nf-if="$ctrl.profile.email">Email: {{$ctrl.profile.email}}</p>
     </div>
 
-    <button ng-click="$ctrl.getRepos()">Github Repos</button>
+    <button class="github" ng-click="$ctrl.getRepos()">github repos</button>
     <div class="box" ng-if"ctrl.repos">
         <ul ng-repeat="repo in $ctrl.repos">
             <li>Name: <a href="{{repo.html_url}}">{{repo.name}}</a></li>

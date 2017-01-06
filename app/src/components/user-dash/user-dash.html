@@ -15,7 +15,7 @@
     <div class="boxshadow profileboxes">
         <h2>GitHub</h2>
         <div ng-if="!$ctrl.ghlink">
-            <button ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
+            <button class="signin" ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
         </div>
         <github></github>
     </div>

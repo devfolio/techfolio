@@ -3,17 +3,13 @@ const Schema = mongoose.Schema;
 
 const github = new Schema({
   userId: String,
-  numCommits: Number,
+  userName: String,
+  url: String,
   numRepos: Number,
-  numFollowers: Number,
+  bio: String,
+  website: String,
   memberSince: Date,
-  savedRepos: {
-    name: String,
-    description: String,
-    avatar: String,
-    html: String,
-    collaborators: String
-  }
+  savedRepos: []
 });
 
 module.exports = mongoose.model('Github', github);

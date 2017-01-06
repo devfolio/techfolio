@@ -20,6 +20,9 @@
             <li>Name: <a href="{{repo.html_url}}">{{repo.name}}</a></li>
             <li>Stars: {{repo.stargazers_count}}</li>
             <li>Last Update: {{repo.updated_at}}</li>
+            <label for="keep">Keep this repo</label>
+            <input type="checkbox" id="keep" ng-click="$ctrl.saveRepos(repo)">
         </ul>
+        <button ng-click="$ctrl.addGithub()">Submit</button>
     </div>
 </section>

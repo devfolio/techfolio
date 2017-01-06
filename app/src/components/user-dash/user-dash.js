@@ -5,7 +5,7 @@ export default {
   template,
   controller,
   bindings: {
-    userData: '='
+    userData: '=',
   }
 };
 
@@ -13,6 +13,8 @@ controller.$inject= ['$auth', '$window', 'tokenService', 'ngDialog', '$state', '
 
 function controller($auth, window, tokenService, ngDialog, $state, githubService) {
   this.styles = styles;
+
+  this.savedLink = {};
 
   window.document.cookie = `token=${tokenService.get()}`;
   this.authenticate = provider => {
@@ -42,11 +44,14 @@ function controller($auth, window, tokenService, ngDialog, $state, githubService
 
   this.updateLinkProfile = () => {
     ngDialog.open({
-      template: '<get-linkedin success="success"></get-linkedin>',
+      template: '<get-linkedin success="success" saved-link="ngDialogData"></get-linkedin>',
       plain: true, 
       width: '90%',
+      data: this.savedLink,
       controller: ['$scope', $scope => {
-        $scope.success = () => {
+        $scope.savedLink = $scope.ngDialogData;
+        $scope.success = (savedLink) => {
+          this.savedLink = savedLink;
           ngDialog.close();
           return $state.go('userDash');
         };

@@ -20,18 +20,18 @@
       <li ng-if="$ctrl.savedLink.summary">
         <label><strong>Profile Summary:</strong> {{$ctrl.savedLink.summary}}</label>
       </li>
-      <li ng-if="$ctrl.savedLink.positionTitle"><h3>Positions:</h3>
+      <li ng-if="!$ctrl.savedLink.positionTitle==='false'"><h3>Positions:</h3>
         <ul>
-          <li ng-if="$ctrl.savedLink.positionTitle">
+          <li ng-if="!$ctrl.savedLink.positionTitle==='false'">
             <label><strong>Last or Current Position:</strong> {{$ctrl.savedLink.positionTitle}}</label>
           </li>
-          <li ng-if="$ctrl.savedLink.positionCompany">
+          <li ng-if="!$ctrl.savedLink.positionCompany==='false'">
             <label><strong>Company:</strong> {{$ctrl.savedLink.positionCompany}}</label>
           </li>
-          <li ng-if="$ctrl.savedLink.positionLocation">
+          <li ng-if="!$ctrl.savedLink.positionLocation==='false'">
             <label><strong>Location:</strong> {{$ctrl.savedLink.positionLocation}}</label>
           </li>
-          <li ng-if="$ctrl.savedLink.positionSummary">
+          <li ng-if="!$ctrl.savedLink.positionSummary==='false'">
             <label><strong>Summary:</strong> {{$ctrl.savedLink.positionSummary}}</label>
           </li>
         </ul>

@@ -22,8 +22,7 @@ function controller(userService) {
       email: this.email,
       password: this.password
     })
-    .then(res => {
-      console.log(res);
+    .then(() => {
       this.success();
       this.reset();
     })

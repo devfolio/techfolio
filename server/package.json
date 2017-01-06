@@ -4,7 +4,7 @@
   "description": "An angular app which integrates with you Github and LinkedIn to create a personal Tech Portfolio",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "pretest": "eslint .",
     "test": "MONGODB_URI=mongodb://localhost/gallery-test mocha"
   },
@@ -20,6 +20,9 @@
   "license": "CC-BY-NC-4.0",
   "bugs": {
     "url": "https://github.com/devfolio/techfolio/issues"
+  },
+  "engines": {
+    "node": "6.8.1"
   },
   "homepage": "https://github.com/devfolio/techfolio#readme",
   "dependencies": {

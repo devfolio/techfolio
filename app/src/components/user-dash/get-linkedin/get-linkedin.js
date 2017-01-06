@@ -4,7 +4,8 @@ import styles from './get-linkedin.scss';
 export default {
   template,
   bindings: {
-    success: '<'
+    success: '<',
+    savedLink: '='
   },
   controller
 };
@@ -26,23 +27,24 @@ function controller(linkedinService){
     profileUrl: true,
     summary: true
   };
-  this.linkProfile = {};
+
+  this.savedLink = {};
 
   this.$onInit = () => {
     linkedinService.get()
       .then(profile => {
-        this.linkProfile = profile;
+        this.savedLink = profile;
         this.loading = false;
       });
   };
 
   this.submit = () => {
-    Object.keys(this.linkProfile).forEach(key => {
-      if(!this.selected[key]) this.linkProfile[key] = '';
+    Object.keys(this.savedLink).forEach(key => {
+      if(!this.selected[key]) this.savedLink[key] = '';
     });
-    linkedinService.post(this.linkProfile)
+    linkedinService.post(this.savedLink)
       .then(() => {
-        this.success();
+        this.success(this.savedLink);
       });
   };
 

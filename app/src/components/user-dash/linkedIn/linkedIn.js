@@ -4,6 +4,9 @@ import styles from './linkedIn.scss';
 export default {
   template,
   controller,
+  bindings: {
+    savedLink: '='
+  }
 };
 
 controller.$inject = ['linkedinService'];

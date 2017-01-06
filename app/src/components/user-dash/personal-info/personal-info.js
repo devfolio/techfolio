@@ -8,7 +8,7 @@ export default {
 controller.$inject = ['userService'];
 
 function controller(userService) {
-  this.save = () => {
+  this.savesForm = () => {
     userService.saveForm({
       location: this.location,
       college: this.college,

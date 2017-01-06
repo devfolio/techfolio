@@ -1,7 +1,8 @@
-<section>
+<section >
   <h2>Updated info from LinkedIn</h2>
   <h3>Check the fields you would like to save to your profile.</h3>
-  <form>
+  <button ng-click="$ctrl.submit()" class="github">Submit</button>
+  <form class="box">
     <ul>
       <li ng-if="$ctrl.linkProfile.pictureUrl">
         <input type="checkbox" ng-model="$ctrl.selected.pictureUrl">
@@ -44,6 +45,5 @@
         </ul>
       </li>
     </ul>
-    <button ng-click="$ctrl.submit()">Save Settings</button>
   </form>
 </section>

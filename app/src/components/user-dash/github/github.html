@@ -13,16 +13,4 @@
         <p>Website: {{$ctrl.profile.blog}}</p>
         <p nf-if="$ctrl.profile.email">Email: {{$ctrl.profile.email}}</p>
     </div>
-
-    <button class="github" ng-click="$ctrl.getRepos()">Github Repos</button>
-    <div class="box" ng-if="ctrl.repos">
-        <ul ng-repeat="repo in $ctrl.repos">
-            <li>Name: <a href="{{repo.html_url}}">{{repo.name}}</a></li>
-            <li>Stars: {{repo.stargazers_count}}</li>
-            <li>Last Update: {{repo.updated_at}}</li>
-            <label for="keep">Keep this repo</label>
-            <input type="checkbox" id="keep" ng-click="$ctrl.saveRepos(repo)">
-        </ul>
-        <button ng-click="$ctrl.addGithub()">Submit</button>
-    </div>
 </section>

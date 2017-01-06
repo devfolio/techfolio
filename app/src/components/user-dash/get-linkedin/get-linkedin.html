@@ -8,43 +8,43 @@
     </div>
     <div ng-if="!ctrl.loading">
         <ul>
-          <li ng-if="$ctrl.linkProfile.pictureUrl">
+          <li ng-if="$ctrl.savedLink.pictureUrl">
             <input type="checkbox" ng-model="$ctrl.selected.pictureUrl">
-            <label><strong>Profile Picture: </strong><img ng-src={{$ctrl.linkProfile.pictureUrl}} alt=""></label>
+            <label><strong>Profile Picture: </strong><img ng-src={{$ctrl.savedLink.pictureUrl}} alt=""></label>
           </li>
-          <li ng-if="$ctrl.linkProfile.headline">
+          <li ng-if="$ctrl.savedLink.headline">
             <input type="checkbox" ng-model="$ctrl.selected.headline">
-            <label><strong>Headline:</strong> {{$ctrl.linkProfile.headline}}</label>
+            <label><strong>Headline:</strong> {{$ctrl.savedLink.headline}}</label>
           </li>
-          <li ng-if="$ctrl.linkProfile.profileUrl">
+          <li ng-if="$ctrl.savedLink.profileUrl">
             <input type="checkbox" ng-model="$ctrl.selected.profileUrl">
-            <label><strong>Profile Url:</strong> {{$ctrl.linkProfile.profileUrl}}</label>
+            <label><strong>Profile Url:</strong> {{$ctrl.savedLink.profileUrl}}</label>
           </li>
-          <li ng-if="$ctrl.linkProfile.connections">
+          <li ng-if="$ctrl.savedLink.connections">
             <input type="checkbox" ng-model="$ctrl.selected.connections">
-            <label><strong>Number of LinkedIn Connections:</strong> {{$ctrl.linkProfile.connections}}</label>
+            <label><strong>Number of LinkedIn Connections:</strong> {{$ctrl.savedLink.connections}}</label>
           </li>
-          <li ng-if="$ctrl.linkProfile.summary">
+          <li ng-if="$ctrl.savedLink.summary">
             <input type="checkbox" ng-model="$ctrl.selected.summary">
-            <label><strong>Profile Summary:</strong> {{$ctrl.linkProfile.summary}}</label>
+            <label><strong>Profile Summary:</strong> {{$ctrl.savedLink.summary}}</label>
           </li>
-          <li ng-if="$ctrl.linkProfile.positionTitle"><h3>Positions:</h3>
+          <li ng-if="$ctrl.savedLink.positionTitle"><h3>Positions:</h3>
             <ul>
-              <li  ng-if="$ctrl.linkProfile.positionTitle">
+              <li  ng-if="$ctrl.savedLink.positionTitle">
                 <input type="checkbox" ng-model="$ctrl.selected.positionTitle">
-                <label><strong>Last or Current Position:</strong> {{$ctrl.linkProfile.positionTitle}}</label>
+                <label><strong>Last or Current Position:</strong> {{$ctrl.savedLink.positionTitle}}</label>
               </li>
-              <li ng-if="$ctrl.linkProfile.positionCompany">
+              <li ng-if="$ctrl.savedLink.positionCompany">
                 <input type="checkbox" ng-model="$ctrl.selected.positionCompany">
-                <label><strong>Company:</strong> {{$ctrl.linkProfile.positionCompany}}</label>
+                <label><strong>Company:</strong> {{$ctrl.savedLink.positionCompany}}</label>
               </li>
-              <li ng-if="$ctrl.linkProfile.positionLocation">
+              <li ng-if="$ctrl.savedLink.positionLocation">
                 <input type="checkbox" ng-model="$ctrl.selected.positionLocation">
-                <label><strong>Location:</strong> {{$ctrl.linkProfile.positionLocation}}</label>
+                <label><strong>Location:</strong> {{$ctrl.savedLink.positionLocation}}</label>
               </li>
-              <li ng-if="$ctrl.linkProfile.positionSummary">
+              <li ng-if="$ctrl.savedLink.positionSummary">
                 <input type="checkbox" ng-model="$ctrl.selected.positionSummary">
-                <label><strong>Summary:</strong> {{$ctrl.linkProfile.positionSummary}}</label>
+                <label><strong>Summary:</strong> {{$ctrl.savedLink.positionSummary}}</label>
               </li>
             </ul>
           </li>

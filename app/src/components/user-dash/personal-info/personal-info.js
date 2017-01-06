@@ -2,12 +2,16 @@ import template from './personal-info.html';
 
 export default {
   template,
-  controller
+  controller,
+  bindings: {
+    success: '<'
+  },
 };
 
 controller.$inject = ['userService'];
 
 function controller(userService) {
+
   this.savesForm = () => {
     userService.saveForm({
       location: this.location,
@@ -23,8 +27,10 @@ function controller(userService) {
       skills: this.skills,
       twitter: this.twitter,
       facebook: this.facebook
-    });
-    this.reset();
+    })
+      .then(() => {
+        this.success();
+      });
   };
 
   this.reset = () => {
@@ -42,4 +48,6 @@ function controller(userService) {
     this.twitter = '';
     this.facebook = '';
   };
+
+  this.reset();
 }

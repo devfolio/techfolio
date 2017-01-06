@@ -15,5 +15,7 @@ controller.inject = [];
 function controller() {
   this.styles = styles;
 
+  console.log(this.profile.github.savedRepos);
+
 
 }

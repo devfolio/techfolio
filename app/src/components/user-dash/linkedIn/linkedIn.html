@@ -1,0 +1,36 @@
+<section>
+  <h2>LinkedIn Saved Profile Information</h2>
+  <ul>
+    <li ng-if="$ctrl.linkProfile.pictureUrl">
+      <label><strong>Profile Picture: </strong><img src="{{$ctrl.linkProfile.pictureUrl}}" alt=""></label>
+    </li>
+    <li ng-if="$ctrl.linkProfile.headline">
+      <label><strong>Headline:</strong> {{$ctrl.linkProfile.headline}}</label>
+    </li>
+    <li ng-if="$ctrl.linkProfile.profileUrl">
+      <label><strong>Profile Url:</strong> {{$ctrl.linkProfile.profileUrl}}</label>
+    </li>
+    <li ng-if="$ctrl.linkProfile.connections">
+      <label><strong>Number of LinkedIn Connections:</strong> {{$ctrl.linkProfile.connections}}</label>
+    </li>
+    <li ng-if="$ctrl.linkProfile.summary">
+      <label><strong>Profile Summary:</strong> {{$ctrl.linkProfile.summary}}</label>
+    </li>
+    <li ng-if="$ctrl.linkProfile.positionTitle"><h3>Positions:</h3>
+      <ul>
+        <li  ng-if="$ctrl.linkProfile.positionTitle">
+          <label><strong>Last or Current Position:</strong> {{$ctrl.linkProfile.positionTitle}}</label>
+        </li>
+        <li ng-if="$ctrl.linkProfile.positionCompany">
+          <label><strong>Company:</strong> {{$ctrl.linkProfile.positionCompany}}</label>
+        </li>
+        <li ng-if="$ctrl.linkProfile.positionLocation">
+          <label><strong>Location:</strong> {{$ctrl.linkProfile.positionLocation}}</label>
+        </li>
+        <li ng-if="$ctrl.linkProfile.positionSummary">
+          <label><strong>Summary:</strong> {{$ctrl.linkProfile.positionSummary}}</label>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>

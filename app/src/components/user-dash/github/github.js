@@ -4,13 +4,12 @@ import styles from './github.scss';
 export default {
   template,
   controller,
-
 };
+
 controller.$inject = ['githubService'];
 
 function controller (githubService) {
   this.styles = styles;
-
   this.loading = true;
 
   this.$onInit = () => {
@@ -20,7 +19,4 @@ function controller (githubService) {
         this.profile = profile;
       });
   };
-
-
-
 }

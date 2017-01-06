@@ -12,6 +12,8 @@ export default {
 controller.$inject = ['linkedinService'];
 
 function controller(linkedinService){
+  this.styles = styles;  
+  this.loading = true;
 
   this.selected ={
     headline: true,
@@ -24,13 +26,15 @@ function controller(linkedinService){
     profileUrl: true,
     profileSummary: true
   };
-  this.styles = styles;  
   this.linkProfile = {};
 
-  linkedinService.get()
-    .then(profile => {
-      this.linkProfile = profile;
-    });
+  this.$onInit = () => {
+    linkedinService.get()
+      .then(profile => {
+        this.linkProfile = profile;
+        this.loading = false;
+      });
+  };
 
   this.submit = () => {
     Object.keys(this.linkProfile).forEach(key => {

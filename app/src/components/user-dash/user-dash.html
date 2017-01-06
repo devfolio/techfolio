@@ -14,10 +14,8 @@
 
     <div class="boxshadow profileboxes">
         <h2>GitHub</h2>
-        <div ng-if="!$ctrl.ghlink">
-            <button class="signin" ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
-        </div>
-        <button ng-click="$ctrl.updateGithubProfile()">Choose repos from github</button>
+        <button class="github inline" ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
+        <button ng-click="$ctrl.updateGithubProfile()" class="github inline">Choose repos from github</button>
         <github></github>
     </div>
 </section>

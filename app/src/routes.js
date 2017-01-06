@@ -34,7 +34,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
     url: '/user/:userUrl',
     resolve: {
       userUrl: ['$transition$', t => t.params().userUrl],
-      userProfile: ['userService', 'userUrl', (userService, userUrl) => {
+      profile: ['userService', 'userUrl', (userService, userUrl) => {
         return userService.getPublicProfile(userUrl);
       }]
     },

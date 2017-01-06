@@ -40,7 +40,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
     },
     data: {
       public: true
-    }
+    },
+    component: 'publicProfile'
   });
 
   $stateProvider.state({

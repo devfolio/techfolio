@@ -61,6 +61,16 @@ router
       .catch(error => next(error));
   })
 
+  .get('/getprofile', ensureToken, function(req, res, next){
+    User.findById(req.user.id)
+      .select('linkedIn')
+      .then(user => {
+        return LinkedIn.findById(user.linkedIn);
+      })
+      .then(data => res.send(data))
+      .catch(error => next(error));
+  })
+
   .post('/', bodyParser, function(req, res) {
     var accessTokenUrl = 'https://www.linkedin.com/oauth/v2/accessToken';
     var params = {

@@ -1,34 +1,34 @@
-<section>
+<section class="box">
   <h2>LinkedIn Saved Profile Information</h2>
   <ul>
-    <li ng-if="$ctrl.linkProfile.pictureUrl">
-      <label><strong>Profile Picture: </strong><img src="{{$ctrl.linkProfile.pictureUrl}}" alt=""></label>
+    <li ng-if=$ctrl.savedLink.pictureUrl>
+      <label><strong>Profile Picture: </strong><img ng-src="{{$ctrl.savedLink.pictureUrl}}" alt=""></label>
     </li>
-    <li ng-if="$ctrl.linkProfile.headline">
-      <label><strong>Headline:</strong> {{$ctrl.linkProfile.headline}}</label>
+    <li ng-if="$ctrl.savedLink.headline">
+      <label><strong>Headline:</strong> {{$ctrl.savedLink.headline}}</label>
     </li>
-    <li ng-if="$ctrl.linkProfile.profileUrl">
-      <label><strong>Profile Url:</strong> {{$ctrl.linkProfile.profileUrl}}</label>
+    <li ng-if="$ctrl.savedLink.profileUrl">
+      <label><strong>Profile Url:</strong> {{$ctrl.savedLink.profileUrl}}</label>
     </li>
-    <li ng-if="$ctrl.linkProfile.connections">
-      <label><strong>Number of LinkedIn Connections:</strong> {{$ctrl.linkProfile.connections}}</label>
+    <li ng-if="$ctrl.savedLink.connections">
+      <label><strong>Number of LinkedIn Connections:</strong> {{$ctrl.savedLink.connections}}</label>
     </li>
-    <li ng-if="$ctrl.linkProfile.summary">
-      <label><strong>Profile Summary:</strong> {{$ctrl.linkProfile.summary}}</label>
+    <li ng-if="$ctrl.savedLink.summary">
+      <label><strong>Profile Summary:</strong> {{$ctrl.savedLink.summary}}</label>
     </li>
-    <li ng-if="$ctrl.linkProfile.positionTitle"><h3>Positions:</h3>
+    <li ng-if="$ctrl.savedLink.positionTitle"><h3>Positions:</h3>
       <ul>
-        <li  ng-if="$ctrl.linkProfile.positionTitle">
-          <label><strong>Last or Current Position:</strong> {{$ctrl.linkProfile.positionTitle}}</label>
+        <li ng-if="$ctrl.savedLink.positionTitle">
+          <label><strong>Last or Current Position:</strong> {{$ctrl.savedLink.positionTitle}}</label>
         </li>
-        <li ng-if="$ctrl.linkProfile.positionCompany">
-          <label><strong>Company:</strong> {{$ctrl.linkProfile.positionCompany}}</label>
+        <li ng-if="$ctrl.savedLink.positionCompany">
+          <label><strong>Company:</strong> {{$ctrl.savedLink.positionCompany}}</label>
         </li>
-        <li ng-if="$ctrl.linkProfile.positionLocation">
-          <label><strong>Location:</strong> {{$ctrl.linkProfile.positionLocation}}</label>
+        <li ng-if="$ctrl.savedLink.positionLocation">
+          <label><strong>Location:</strong> {{$ctrl.savedLink.positionLocation}}</label>
         </li>
-        <li ng-if="$ctrl.linkProfile.positionSummary">
-          <label><strong>Summary:</strong> {{$ctrl.linkProfile.positionSummary}}</label>
+        <li ng-if="$ctrl.savedLink.positionSummary">
+          <label><strong>Summary:</strong> {{$ctrl.savedLink.positionSummary}}</label>
         </li>
       </ul>
     </li>

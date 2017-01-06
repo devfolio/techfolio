@@ -11,7 +11,7 @@ export default function linkedInService($http, apiUrl) {
         .then(res => res.data);
     },
     getSaved(){
-      return $http.get(`${apiUrl}/linkedin/getProfile`)
+      return $http.get(`${apiUrl}/linkedin/getprofile`)
         .then(res => res.data);
     }
   };

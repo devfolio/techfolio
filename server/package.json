@@ -4,7 +4,7 @@
   "description": "An angular app which integrates with you Github and LinkedIn to create a personal Tech Portfolio",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "pretest": "eslint .",
     "test": "MONGODB_URI=mongodb://localhost/gallery-test mocha"
   },

@@ -37996,7 +37996,7 @@
 	    url: apiUrl + '/linkedin/',
 	    authorizationEndpoint: 'https://www.linkedin.com/oauth/v2/authorization',
 	    clientId: ("86xdssak7j3wxb"),
-	    redirectUri: 'https://techfolio.herokuapp.com/linkedin/',
+	    redirectUri: currentLocation + '/linkedin/',
 	    state: 'Devfolio'
 	  });
 	}

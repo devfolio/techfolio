@@ -12,8 +12,6 @@ controller.$inject = ['userService'];
 
 function controller(userService) {
 
-  this.reset();
-
   this.savesForm = () => {
     userService.saveForm({
       location: this.location,
@@ -49,4 +47,6 @@ function controller(userService) {
     this.twitter = '';
     this.facebook = '';
   };
+
+  this.reset();
 }

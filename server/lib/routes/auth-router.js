@@ -44,7 +44,6 @@ router
       return token.sign(user);
     })
     .then(token => {
-      console.log('token: ', token);
       res.send({ token });
     })
     .catch(next);

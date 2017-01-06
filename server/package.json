@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/devfolio/techfolio/issues"
   },
+  "engines": {
+    "node": "6.8.1"
+  },
   "homepage": "https://github.com/devfolio/techfolio#readme",
   "dependencies": {
     "bcryptjs": "^2.4.0",

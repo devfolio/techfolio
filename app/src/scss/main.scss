@@ -67,6 +67,24 @@ header {
 
 $pad: 20px;
 
+// personal-info styling
+
+label {
+  color: darkslateblue;
+  font-weight: bold;
+  margin: 6px 4px 6px 6px;
+}
+
+input {
+  border: 1px solid darkslateblue;
+  radius: 4px;
+  margin: 6px 12px 6px 2px;
+}
+
+.skills {
+  width: 600px;
+}
+
 // buttons styling
 
 .dashboard {
@@ -103,7 +121,7 @@ $pad: 20px;
   background-color: white;
   color: darkslateblue;
   font-weight: 500;
-  padding: 4px 12px;
+  padding: 4px 6px;
 }
 .signin:hover {
   background-color: aliceblue;
@@ -118,7 +136,7 @@ $pad: 20px;
   background-color: white;
   color: darkslateblue;
   font-weight: 500;
-  padding: 4px 12px;
+  padding: 4px 6px;
 }
 .github:hover {
   background-color: aliceblue;

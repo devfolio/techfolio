@@ -17,6 +17,7 @@
         <div ng-if="!$ctrl.ghlink">
             <button class="signin" ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
         </div>
+        <button ng-click="$ctrl.updateGithubProfile()">Choose repos from github</button>
         <github></github>
     </div>
 </section>

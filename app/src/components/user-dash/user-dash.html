@@ -4,16 +4,17 @@
     <div class="boxshadow profileboxes">
         <h2>LinkedIn</h2>
         <div ng-if="!$ctrl.lilink">
-            <button ng-click="$ctrl.authenticate('linkedin')">Sign in with LinkedIn</button>
+            <button class="signin" ng-click="$ctrl.authenticate('linkedin')">Sign in with LinkedIn</button>
         </div>
-        <button ng-click="$ctrl.updateLinkProfile()">Update Profile from LinkedIn</button>
+        <br/>
+        <button class="signin" ng-click="$ctrl.updateLinkProfile()">Update Profile from LinkedIn</button>
         <linkedIn></linkedIn>
     </div>
 
     <div class="boxshadow profileboxes">
         <h2>GitHub</h2>
         <div ng-if="!$ctrl.ghlink">
-            <button ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
+            <button class="signin" ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
         </div>
         <github></github>
     </div>

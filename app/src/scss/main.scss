@@ -67,6 +67,69 @@ header {
 
 $pad: 20px;
 
+// buttons styling
+
+.dashboard {
+  font-weight: 500;
+  font-style: oblique;
+  color: darkslateblue;
+  margin-left: 10px;
+}
+.dashboard:hover {
+  font-weight: bold;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.welcome {
+  border: 2px solid darkslateblue;
+  border-radius: 5px;
+  background-color: white;
+  color: darkslateblue;
+  font-weight: 500;
+  padding: 4px 6px;
+  margin-right: 10px;
+}
+.welcome:hover {
+  background-color: skyblue;
+  font-weight: 600;
+  font-style: oblique;
+  padding: 4px 6px;
+  margin-right: 10px;
+}
+
+.signin {
+  border: 2px solid darkslateblue;
+  border-radius: 5px;
+  background-color: white;
+  color: darkslateblue;
+  font-weight: 500;
+  padding: 4px 6px;
+}
+.signin:hover {
+  background-color: skyblue;
+  font-weight: 600;
+  font-style: oblique;
+  padding: 4px 6px;
+}
+
+.github {
+  border: 2px solid darkslateblue;
+  border-radius: 5px;
+  background-color: white;
+  color: darkslateblue;
+  font-weight: 500;
+  padding: 4px 6px;
+}
+.github:hover {
+  background-color: skyblue;
+  font-weight: 600;
+  font-style: oblique;
+  padding: 4px 6px;
+}
+
+// grid & column styling
+
 .grid {
   background: white;
   margin: 5%;
@@ -112,4 +175,3 @@ $pad: 20px;
     padding-right: $pad;
   }
 }
-

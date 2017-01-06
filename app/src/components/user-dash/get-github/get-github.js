@@ -16,8 +16,6 @@ function controller (githubService) {
   this.savedRepos = [];
   this.loading = true;
 
-  this.test = 'test';
-
   this.$onInit = () => {
     githubService.getRepos().then(repos => {
       this.repos = repos;
@@ -28,7 +26,6 @@ function controller (githubService) {
       .then(profile => {
         this.profile = profile;
       });
-
   };
 
   this.saveGithub = info => {
@@ -48,8 +45,6 @@ function controller (githubService) {
       website: this.profile.blog,
       memberSince: this.profile.created_at,
       savedRepos: this.savedRepos
-
-
     });
   };
 
@@ -58,10 +53,8 @@ function controller (githubService) {
       return element.id == repo.id;
     });
     if(index > -1) {
-      console.log('removed item');
       this.savedRepos.splice(index, 1);
     } else {
-      console.log('add item');
       this.savedRepos.push({id: repo.id, name: repo.name, stars: repo.stargazers_count, lastUpdate: repo.updated_at});
     }
   };

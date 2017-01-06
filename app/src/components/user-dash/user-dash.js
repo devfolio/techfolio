@@ -5,7 +5,7 @@ export default {
   template,
   controller,
   bindings: {
-    userData: '='   // putting a 2-way binding because I think we want to update this
+    userData: '='
   }
 };
 
@@ -18,9 +18,6 @@ function controller($auth, window, tokenService, ngDialog, $state, githubService
   this.authenticate = provider => {
     $auth.authenticate(provider);
   };
-
-  // this.ghlink = !!(this.userData.ghUsername);
-  // this.lilink = !!(this.userData.linkedIn);
 
   this.$onInit = () => {
     githubService.getProfile()
@@ -42,8 +39,6 @@ function controller($auth, window, tokenService, ngDialog, $state, githubService
       }]
     });
   };
-
-
 
   this.updateGithubProfile = () => {
     ngDialog.open({

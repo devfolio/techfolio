@@ -15,14 +15,14 @@ function controller(linkedinService){
 
   this.selected ={
     headline: true,
-    position:false,
     positionTitle: false,
     positionCompany: false,
     positionLocation: false,
     positionSummary: false,
     connections: false,
     pictureUrl: false,
-    profileUrl: false
+    profileUrl: true,
+    profileSummary: true
   };
   this.styles = styles;  
   this.linkProfile = {};
@@ -34,7 +34,7 @@ function controller(linkedinService){
 
   this.submit = () => {
     Object.keys(this.linkProfile).forEach(key => {
-      if(!this.selected[key]) this.linkProfile[key] = false;
+      if(!this.selected[key]) this.linkProfile[key] = '';
     });
     linkedinService.post(this.linkProfile)
       .then(() => {

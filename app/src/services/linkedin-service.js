@@ -9,6 +9,10 @@ export default function linkedInService($http, apiUrl) {
     post(selectedInfo) {
       return $http.post(`${apiUrl}/linkedin/userupdate`, selectedInfo)
         .then(res => res.data);
+    },
+    getSaved(){
+      return $http.get(`${apiUrl}/linkedin/getprofile`)
+        .then(res => res.data);
     }
   };
 }

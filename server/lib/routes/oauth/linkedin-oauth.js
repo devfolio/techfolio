@@ -41,7 +41,6 @@ router
         });
       })
       .then(profile => {
-        console.log('then profile', profile);
         let modProfile = {
           headline: profile.headline,
           connections: profile.numConnections,

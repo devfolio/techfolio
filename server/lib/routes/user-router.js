@@ -5,11 +5,10 @@ const User = require('../models/user');
 
 router
   .get('/:userUrl', bodyParser, (req, res, next) => {
-    User.findById(req.params.userUrl)
+    User.findOne({userUrl: req.params.userUrl})
       .select('-ghaccess -liAccess -_id -password')
-      .populate('github')
-      .populate('linkedIn')
-      .lean()
+      .populate({path:'github'})
+      .populate({path:'linkedIn'})
       .then(user => {
         res.send(user);
       })

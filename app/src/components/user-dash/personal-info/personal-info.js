@@ -37,6 +37,7 @@ function controller(userService) {
     this.gradyear2 = '';
     this.vocschool = '';
     this.certification = '';
+    this.gradyear3 = '';
     this.skills = '';
     this.twitter = '';
     this.facebook = '';

@@ -37,20 +37,25 @@ router
           request.get({url: profileUrl, qs: params, json: true}, (err, response, profile) => {
             if(err) return reject({error: err});
             resolve(profile);
-          })
-        })
+          });
+        });
       })
       .then(profile => {
+        console.log('then profile', profile);
         let modProfile = {
           headline: profile.headline,
-          positionTitle: profile.positions.values[0].title,
-          positionCompany: profile.positions.values[0].company.name,
-          positionLocation: profile.positions.values[0].location.name,
-          positionSummary: profile.positions.values[0].summary,
           connections: profile.numConnections,
+          industry: profile.industry,
           pictureUrl: profile.pictureUrl,
-          profileUrl: profile.publicProfileUrl
+          profileUrl: profile.publicProfileUrl,
+          summary: profile.summary
         };
+        if (profile.positions._total > 0) {
+          modProfile.positionTitle = profile.positions.values[0].title;
+          modProfile.positionCompany = profile.positions.values[0].company.name;
+          modProfile.positionLocation = profile.positions.values[0].location.name;
+          modProfile.positionSummary = profile.positions.values[0].summary;
+        }
         res.send(modProfile);
       })
       .catch(error => next(error));
@@ -107,6 +112,6 @@ router
         }
       })
       .catch(err => next(err));
-  })
+  });
 
 module.exports = router;

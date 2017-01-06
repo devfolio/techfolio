@@ -10,6 +10,11 @@ export default function githubService($http, apiUrl) {
     getRepos() {
       return $http.get(`${apiUrl}/github/repos`)
         .then(res => res.data);
+    },
+
+    saveGithub(info) {
+      return $http.post(`${apiUrl}/github/repos`, info)
+        .then(res => res.data);
     }
   };
 }

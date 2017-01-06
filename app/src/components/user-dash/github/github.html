@@ -4,15 +4,15 @@
         <h1>Loading</h1>
     </div>
     <div class="box"ng-if="!$ctrl.loading">
-        <p>Username: {{$ctrl.profile.login}}</p>
-        <p>Github: <a href="{{$ctrl.profile.html_url}}">{{$ctrl.profile.html_url}}</a></p>
-        <p>Number of public repos: {{$ctrl.profile.public_repos}}</p>
-        <p>Bio: {{$ctrl.profile.bio}}</p>
-        <p>Website: {{$ctrl.profile.blog}}</p>
-        <p nf-if="$ctrl.profile.email">Email: {{$ctrl.profile.email}}</p>
+        <p>Username: {{$ctrl.profile.github.userName}}</p>
+        <p>Github: <a href="{{$ctrl.profile.github.url}}">{{$ctrl.profile.github.url}}</a></p>
+        <p>Number of public repos: {{$ctrl.profile.github.numRepos}}</p>
+        <p ng-if="$ctrl.profile.bio">Bio: {{$ctrl.profile.github.bio}}</p>
+        <p ng-if="$ctrl.profile.blog">Website: {{$ctrl.profile.github.blog}}</p>
+        <p ng-if="$ctrl.profile.email">Email: {{$ctrl.profile.github.ghEmail}}</p>
+        <p ng-if="$ctrl.profile.github.savedRepos" ng-repeat="repo in $ctrl.profile.github.savedRepos">Saved repos: {{repo.name}}</p>
     </div>
 
-    <button ng-click="$ctrl.getRepos()">Github Repos</button>
     <div class="box" ng-if="ctrl.repos">
         <ul ng-repeat="repo in $ctrl.repos">
             <li>Name: <a href="{{repo.html_url}}">{{repo.name}}</a></li>

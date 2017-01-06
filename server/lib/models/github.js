@@ -9,6 +9,7 @@ const github = new Schema({
   bio: String,
   website: String,
   memberSince: Date,
+  ghEmail: String,
   savedRepos: []
 });
 

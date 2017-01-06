@@ -6,14 +6,14 @@ export default {
   controller,
 };
 
-controller.$inject = ['githubService'];
+controller.$inject = ['userService'];
 
-function controller (githubService) {
+function controller (userService) {
   this.styles = styles;
   this.loading = true;
 
   this.$onInit = () => {
-    githubService.getProfile()
+    userService.getProfile()
       .then(profile => {
         this.loading = false;        
         this.profile = profile;

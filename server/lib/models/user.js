@@ -23,6 +23,10 @@ const userSchema = new Schema({
   linkedIn: {
     type: Schema.Types.ObjectId,
     ref: 'LinkedIn'
+  },
+  personalInfo: {
+    type: Schema.Types.ObjectId,
+    ref: 'PersonalInfo'
   }
 
 });

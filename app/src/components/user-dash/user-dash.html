@@ -2,6 +2,12 @@
     <nav></nav>
 
     <div class="boxshadow profileboxes">
+        <h2>Personal Info</h2>
+        <button ng-click="$ctrl.personalForm()" class="github">Update Personal Info</button>
+        <saved-personal></saved-personal>
+    </div>
+
+    <div class="boxshadow profileboxes">
         <h2>LinkedIn</h2>
         <div class="inline">
             <button ng-click="$ctrl.authenticate('linkedin')" class="github">Sign in with LinkedIn</button>
@@ -14,10 +20,8 @@
 
     <div class="boxshadow profileboxes">
         <h2>GitHub</h2>
-        <div ng-if="!$ctrl.ghlink">
-            <button class="signin" ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
-        </div>
-        <button ng-click="$ctrl.updateGithubProfile()">Choose repos from github</button>
+        <button class="github inline" ng-click="$ctrl.authenticate('github')">Sign in with GitHub</button>
+        <button ng-click="$ctrl.updateGithubProfile()" class="github inline">Choose repos from github</button>
         <github></github>
     </div>
 </section>

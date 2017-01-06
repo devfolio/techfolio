@@ -1,4 +1,4 @@
-import template from './form.html';
+import template from './personal-info.html';
 
 export default {
   template,

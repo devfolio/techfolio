@@ -10,9 +10,15 @@ controller.$inject = ['linkedinService'];
 
 function controller(linkedinService) {
   this.styles = styles;
+  this.loading = true;
 
   this.savedLink = {};
 
-  linkedinService.getSaved()
-    .then(saved => this.savedLink = saved);
+  this.$onInit = () => {
+    linkedinService.getSaved()
+      .then(saved => {
+        this.savedLink = saved;
+        this.loading = false;
+      });
+  };
 }

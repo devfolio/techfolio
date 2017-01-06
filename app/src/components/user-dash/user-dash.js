@@ -26,6 +26,20 @@ function controller($auth, window, tokenService, ngDialog, $state, githubService
       });
   };
 
+  this.personalForm = () => {
+    ngDialog.open({
+      template: '<personal-info success="success"></personal-info>',
+      plain: true, 
+      width: '90%',
+      controller: ['$scope', $scope => {
+        $scope.success = () => {
+          ngDialog.close();
+          return $state.go('userDash');
+        };
+      }]
+    });
+  };
+
   this.updateLinkProfile = () => {
     ngDialog.open({
       template: '<get-linkedin success="success"></get-linkedin>',

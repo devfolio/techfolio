@@ -12,10 +12,13 @@
 
         <div class="boxes boxshadow">
             <article class="module profile">
+                <div  class="center" ng-if="$ctrl.profile.linkedIn.pictureUrl">
+                    <img ng-src={{$ctrl.profile.linkedIn.pictureUrl}}>
+                </div>
                 <h3>{{$ctrl.profile.firstName}}{{$ctrl.profile.lastName}}</h3>
                 <p ng-if="$ctrl.profile.location">{{$ctrl.profile.location}}</p>
                 <a href="mailto:{{$ctrl.profile.email}}?Subject=Nice%20TechFolio"
-                   target="_top" ng-if="$ctrl.profile.email">
+                    target="_top" ng-if="$ctrl.profile.email">
                     {{$ctrl.profile.email}}</a>
                 <p ng-if="$ctrl.profile.blog">{{$ctrl.profile.blog}}</p>
                 <p ng-if="$ctrl.profile.html_url"><a href="{{$ctrl.profile.html_url}}">GitHub</a></p>
@@ -25,7 +28,13 @@
         <div class="boxes boxshadow">
             <article class="module">
                 <h3>LinkedIn</h3>
-                <p>data here</p>
+                <h4>{{$ctrl.profile.linkedIn.headline}}</h4>
+                <p>{{$ctrl.profile.linkedIn.profileUrl}}</p>
+                <p>{{$ctrl.profile.linkedIn.positionTitle}}</p>
+                <p>{{$ctrl.profile.linkedIn.positionCompany}}</p>
+                <p>{{$ctrl.profile.linkedIn.positionLocation}}</p>
+                <p>{{$ctrl.profile.linkedIn.positionSummary}}</p>
+                <p>{{$ctrl.profile.linkedIn.connections}}</p>
             </article>
         </div>
 
@@ -33,17 +42,16 @@
             <article class="module">
                 <h3>GitHub Projects</h3>
 
-                <a ng-if="$ctrl.profile.html_url" href="{{$ctrl.profile.html_url}}">
-                    <p>Username: {{$ctrl.profile.login}}</p></a>
-                <p ng-if="$ctrl.profile.public_repos">Number of public repos: {{$ctrl.profile.public_repos}}</p>
-                <p ng-if="$ctrl.profile.bio">Bio: {{$ctrl.profile.bio}}</p>
-                <p ng-if="$ctrl.profile.email">Email: {{$ctrl.profile.email}}</p>
+                <a href="{{$ctrl.profile.github.website}}">
+                    <p>Username: {{$ctrl.profile.github.userName}}</p></a>
+                <p>Number of public repos: {{$ctrl.profile.github.numRepos}}</p>
+                <p>Bio: {{$ctrl.profile.github.bio}}</p>
 
-                <div class="box" ng-if="ctrl.profile.repos">
-                    <ul ng-repeat="repo in $ctrl.profile.repos">
-                        <li>Name: <a href="{{repo.html_url}}">{{repo.name}}</a></li>
-                        <li>Stars: {{repo.stargazers_count}}</li>
-                        <li>Last Update: {{repo.updated_at}}</li>
+                <div class="box">
+                    <ul ng-repeat="repo in $ctrl.profile.github.savedRepos">
+                        <li>Name: <a href="">{{repo.name}}</a></li>
+                        <li>Stars: {{repo.stars}}</li>
+                        <li>Last Update: {{repo.lastUpdate}}</li>
                     </ul>
                 </div>
             </article>

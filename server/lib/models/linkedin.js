@@ -7,6 +7,7 @@ const linkedin = new Schema({
   positionCompany: String,
   positionLocation: String,
   positionSummary: String,
+  summary: String,
   connections: String,
   pictureUrl: String,
   profileUrl: String

@@ -28,7 +28,7 @@ function controller($auth, window, tokenService, ngDialog, $state, githubService
 
   this.personalForm = () => {
     ngDialog.open({
-      template: '<public-profile="success"></public-profile>',
+      template: '<personal-info success="success"></personal-info>',
       plain: true, 
       width: '90%',
       controller: ['$scope', $scope => {

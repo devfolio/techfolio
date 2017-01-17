@@ -28,6 +28,7 @@ function controller($auth, window, tokenService, ngDialog, $state, githubService
       });
   };
 
+  // nice use of integrating ngDialog...
   this.personalForm = () => {
     ngDialog.open({
       template: '<personal-info success="success"></personal-info>',

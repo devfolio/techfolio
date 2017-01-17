@@ -91,7 +91,6 @@ router
     let userToken = req.headers.authorization;
     accessToken = qs.parse(accessToken);
 
-    //Token hack until we can pass token through headers in Satellizer
     token.verify(userToken)
       .then(({id}) => User.findById(id) )
       .then(user => {

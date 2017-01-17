@@ -14,6 +14,7 @@ function controller($auth, linkedinService){
   };
 
   this.getLinkedIn = () => {
+    // but nothing hapens here...
     linkedinService.get();
   };
 }

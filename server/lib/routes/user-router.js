@@ -6,7 +6,7 @@ const User = require('../models/user');
 router
   .get('/:userUrl', bodyParser, (req, res, next) => {
     User.findOne({userUrl: req.params.userUrl})
-      .select('-ghaccess -liAccess -_id -password')
+      .select('-ghaccess -liAccess -_id -password') //nice!
       .populate({path:'github'})
       .populate({path:'linkedIn'})
       .then(user => {

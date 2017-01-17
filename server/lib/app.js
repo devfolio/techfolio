@@ -30,9 +30,10 @@ app.use((req, res, next) => {
 
 app.use(express.static('./public'));
 
+// No authentication enforcement???
 app.use('/github', github);
 app.use('/linkedin', linkedin);
-app.use('/user', user);
+app.use('/users', user);
 app.use('/auth', auth);
 app.use('/admin', admin);
 app.use(errorHandler);

@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "pretest": "eslint .",
-    "test": "MONGODB_URI=mongodb://localhost/gallery-test mocha"
+    "//": "since you're using dotenv, don't have both ways:",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

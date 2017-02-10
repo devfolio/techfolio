@@ -51,7 +51,6 @@ describe('User authentication routes', () => {
       .end((err, res) => {
         if (err) done(err);
         let response = JSON.parse(res.text);
-        console.log('User token: ', response.token);
         assert.isOk(token = response.token);
         done();
       });
@@ -66,7 +65,6 @@ describe('User authentication routes', () => {
         if (err) done(err);
         let response = JSON.parse(res.text);
         adminToken = response.token;
-        console.log('Admin token: ', adminToken);
         assert.isOk(adminToken);
         done();
       });
@@ -88,7 +86,6 @@ describe('User authentication routes', () => {
         assert.equal(res.text, error);
         done();
       });
-
   });
 
   it('requires a password to signup', done => {
@@ -180,7 +177,6 @@ describe('User authentication routes', () => {
         assert.equal(receivedToken, jwtHeader);
         done();
       });
-
   });
 
   it('validates a token using validation route', done => {
@@ -195,7 +191,23 @@ describe('User authentication routes', () => {
       .catch(done);
   });
 
- });
+  it('requires a token to hit the /auth route', done => {
+
+    request
+      .get('/auth')
+      .set('Authorization', token)
+      .then(res => {
+        const user = JSON.parse(res.text);
+        assert.equal(user.email, tokenUser.email);
+        assert.equal(user.firstName, tokenUser.firstName);
+        assert.equal(user.lastName, tokenUser.lastName);
+        assert.deepEqual(user.roles, []); // roles wasn't added to original token user
+        done();
+      })
+      .catch(done);
+  });
+
+});
 
 // describe('auth routes', () => {
 //   it('should sign a user up', done => {

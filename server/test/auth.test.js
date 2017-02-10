@@ -73,7 +73,38 @@ describe('User authentication routes', () => {
   });
 
 
+  /***************  SIGN IN TESTS ***************************/
 
+  it('requires an email address to sign up', done => {
+
+    const noName = { password: 'Password', firstName: 'Name', lastName: 'Last' };
+    const error = '{"error":"Email, password, and full name are required to sign up."}';
+
+    request
+      .post('/auth/signup') // expecting an error, don't catch err
+      .send(noName)
+      .end((err, res) => {
+        assert.equal(res.status, 400);
+        assert.equal(res.text, error);
+        done();
+      });
+
+  });
+
+  it('requires a password to signup', done => {
+
+    const noPass = { email: 'Whats@ina.name', firstName: 'Name', lastName: 'Last' };
+    const error = '{"error":"Email, password, and full name are required to sign up."}';
+
+    request
+      .post('/auth/signup') // expecting an error, don't catch err
+      .send(noPass)
+      .end((err, res) => {
+        assert.equal(res.status, 400);
+        assert.equal(res.text, error);
+        done();
+      });
+  });
 
 });
 

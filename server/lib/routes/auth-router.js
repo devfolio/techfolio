@@ -6,8 +6,8 @@ const token = require('../auth/token');
 const ensureLogin = require('../auth/ensure-login')();
 const ensureToken = require('../auth/ensure-token')();
 
-router
 
+router
   .get('/', ensureToken, (req, res, next) => {
     User.findById(req.user.id)
       .select('-ghaccess -liAccess -_id -password')
@@ -67,7 +67,6 @@ router
   })
 
   .post('/personal', ensureToken, bodyParser, (req, res, next) => {
-
     User.findById(req.user.id)
       .then(user => {
         if(user.personalInfo) {

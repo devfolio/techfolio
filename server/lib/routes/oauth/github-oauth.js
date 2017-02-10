@@ -91,7 +91,7 @@ router
 
       //Token hack until we can pass token through headers in Satellizer
       token.verify(userToken)
-        .then(({id}) => User.findById(id))
+        .then(({ id }) => User.findById(id))
         .then(user => {
           user.ghaccess = accessToken.access_token;
           user.save();

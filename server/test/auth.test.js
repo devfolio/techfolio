@@ -157,6 +157,32 @@ describe('User authentication routes', () => {
       });
   });
 
+  /***************  TOKEN TESTS ***************************/
+
+  it('receives a token when signing up', done => {
+
+    const firstUser = {
+      email: 'first@email.com',
+      password: 'Password',
+      firstName: 'First',
+      lastName: 'Last'
+    };
+
+    const jwtHeader = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
+
+    request
+      .post('/auth/signup')
+      .send(firstUser)
+      .end((err, res) => {
+        let tokenBody = JSON.parse(res.text).token;
+        let tokenArray = tokenBody.split('.');
+        let receivedToken = tokenArray[0];
+        assert.equal(receivedToken, jwtHeader);
+        done();
+      });
+
+  });
+
 });
 
 // describe('auth routes', () => {

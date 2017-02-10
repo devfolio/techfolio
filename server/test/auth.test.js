@@ -207,6 +207,31 @@ describe('User authentication routes', () => {
       .catch(done);
   });
 
+  it('errors if you hit / without a token', done => {
+
+    request
+      .get('/auth')   // expecting an error
+      .catch(err => {
+        assert.equal(err.status, 403);
+        assert.equal(err.response.text, '{"error":"Sign In Error: Please log in again."}');
+        done();
+      });
+
+  });
+
+  it('errors if you hit / with an incorrect token', done => {
+
+    request
+      .get('/auth')
+      .set('Authorization', 'Not a token')
+      .catch(err => {
+        assert.equal(err.status, 403);
+        assert.equal(err.response.text, '{"error":"Sign In Error: Please log in again."}');
+        done();
+      });
+
+  });
+
 });
 
 // describe('auth routes', () => {

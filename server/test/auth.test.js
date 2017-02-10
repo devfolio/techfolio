@@ -71,7 +71,7 @@ describe('User authentication routes', () => {
   });
 
 
-  /***************  SIGN IN TESTS ***************************/
+  /***************  SIGN UP TESTS ***************************/
 
   it('requires an email address to sign up', done => {
 
@@ -150,6 +150,49 @@ describe('User authentication routes', () => {
       .end(err => {
         assert.equal(err.status, 400);
         assert.equal(err.response.text, error);
+        done();
+      });
+  });
+
+  /***************  SIGN IN TESTS ***************************/
+
+  it('requires an email address to sign in', done => {
+
+    const error = '{"error":"Invalid email address or password. Please try again."}';
+
+    request
+      .post('/auth/signin') // expecting an error, don't catch err
+      .send({ "password": "Password" })
+      .end((err, res) => {
+        assert.equal(res.status, 400);
+        assert.equal(res.text, error);
+        done();
+      });
+  });
+
+  it('requires a password to sign in', done => {
+
+    const error = '{"error":"Invalid email address or password. Please try again."}';
+
+    request
+      .post('/auth/signin') // expecting an error, don't catch err
+      .send({ "email": "name@email.com" })
+      .end((err, res) => {
+        assert.equal(res.status, 400);
+        assert.equal(res.text, error);
+        done();
+      });
+  });
+
+  it('signs in and receives a token', done => {
+
+    request
+      .post('/auth/signin')
+      .send(tokenUser)
+      .end((err, res) => {
+        if (err) done(err);
+        let response = JSON.parse(res.text);
+        assert.isOk(response.token);
         done();
       });
   });

@@ -5,13 +5,13 @@ chai.use(chaiHttp);
 const connection = require('../lib/setup-mongoose');
 
 
-before( done => {
+before(done => {
   const drop = () => connection.db.dropDatabase(done);
   if (connection.readyState === 1) drop();
-  else connection.on( 'open', drop );
+  else connection.on('open', drop);
 });
 
-after( done => {
+after(done => {
   const drop = () => connection.db.dropDatabase(done);
   if (connection.readyState === 1) drop();
   else connection.on( 'open', drop );

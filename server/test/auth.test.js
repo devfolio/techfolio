@@ -4,13 +4,6 @@ const chaiHttp = require('chai-http');
 const assert = chai.assert;
 chai.use(chaiHttp);
 
-// Set up mongoDB
-const dbURI = 'mongodb://localhost/testDB';
-const mongoose = require('mongoose');
-mongoose.Promise = Promise;
-mongoose.connect(dbURI);
-const connection = mongoose.connection;
-
 const app = require('../lib/app');
 const request = chai.request(app);
 
@@ -32,16 +25,6 @@ describe('User authentication routes', () => {
     lastName: 'Min',
     roles: ['admin']
   };
-
-  before(done => {
-    // Check for the test db before running, drop if exists
-    function dropCollection() {
-      connection.db.dropDatabase('testDB', done);
-    }
-    const CONNECTED = 1;
-    if (connection.readyState === CONNECTED) dropCollection();
-    else (connection.on('open', dropCollection));
-  });
 
   before(done => {
     // Set up a tokened user for later tests
@@ -259,7 +242,6 @@ describe('User authentication routes', () => {
         assert.equal(err.response.text, '{"error":"Sign In Error: Please log in again."}');
         done();
       });
-
   });
 
   it('errors if you hit / with an incorrect token', done => {
@@ -272,20 +254,6 @@ describe('User authentication routes', () => {
         assert.equal(err.response.text, '{"error":"Sign In Error: Please log in again."}');
         done();
       });
-
   });
 
 });
-
-// describe('auth routes', () => {
-//   it('should sign a user up', done => {
-//     request
-//       .post('/auth/signup')
-//       .send(user)
-//       .then(res => {
-//         assert.isOk(res.body.token);
-//         done();
-//       })
-//      .catch(done);
-//   });
-// });

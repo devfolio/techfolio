@@ -106,6 +106,57 @@ describe('User authentication routes', () => {
       });
   });
 
+  it('requires a first name to signup', done => {
+
+    const noPass = { email: 'Whats@ina.name', password: 'Password', lastName: 'Last' };
+    const error = '{"error":"Email, password, and full name are required to sign up."}';
+
+    request
+      .post('/auth/signup') // expecting an error, don't catch err
+      .send(noPass)
+      .end((err, res) => {
+        assert.equal(res.status, 400);
+        assert.equal(res.text, error);
+        done();
+      });
+  });
+
+  it('requires a last name to signup', done => {
+
+    const noPass = { email: 'Whats@ina.name', password: 'Password', firstName: 'Name' };
+    const error = '{"error":"Email, password, and full name are required to sign up."}';
+
+    request
+      .post('/auth/signup') // expecting an error, don't catch err
+      .send(noPass)
+      .end((err, res) => {
+        assert.equal(res.status, 400);
+        assert.equal(res.text, error);
+        done();
+      });
+  });
+
+  it('requires a unique email to signup', done => {
+
+    const duplicateUser = {
+      email: 'user@email.com',
+      password: 'Password',
+      firstName: 'Already',
+      lastName: 'SignedUp'
+    };
+
+    const error = `{"error":"Username ${duplicateUser.email} already taken."}`;
+
+    request
+      .post('/auth/signup') // expecting an error
+      .send(duplicateUser)
+      .end(err => {
+        assert.equal(err.status, 400);
+        assert.equal(err.response.text, error);
+        done();
+      });
+  });
+
 });
 
 // describe('auth routes', () => {

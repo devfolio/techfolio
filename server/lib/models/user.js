@@ -32,12 +32,12 @@ const userSchema = new Schema({
 });
 
 
-userSchema.methods.generateHash = function( password ) {
-  return this.password = bcrypt.hashSync( password, 10 );
+userSchema.methods.generateHash = function(password) {
+  return this.password = bcrypt.hashSync(password, 10);
 };
 
-userSchema.methods.compareHash = function( password ) {
-  return bcrypt.compareSync( password, this.password );
+userSchema.methods.compareHash = function(password) {
+  return bcrypt.compareSync(password, this.password);
 };
 
 

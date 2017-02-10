@@ -183,7 +183,19 @@ describe('User authentication routes', () => {
 
   });
 
-});
+  it('validates a token using validation route', done => {
+
+    request
+      .post('/auth/validate')
+      .set('Authorization', token)
+      .then(res => {
+        assert.equal(res.text, '{"valid":true}');
+        done();
+      })
+      .catch(done);
+  });
+
+ });
 
 // describe('auth routes', () => {
 //   it('should sign a user up', done => {

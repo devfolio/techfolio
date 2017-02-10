@@ -1,10 +1,10 @@
 const router = require('express').Router();
+const request = require('request');
+const qs = require('qs');
 const User = require('../../models/user');
 const Github = require('../../models/github');
-const ensureToken = require('../../auth/ensure-token')();
-const request = require('request');
 const jsonParser = require('body-parser').json();
-const qs = require('qs');
+const ensureToken = require('../../auth/ensure-token')();
 const token = require('../../auth/token');
 
 const GITHUB_SECRET = process.env.GITHUB_SECRET;

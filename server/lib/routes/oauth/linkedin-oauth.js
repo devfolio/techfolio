@@ -1,11 +1,10 @@
 const router = require('express').Router();
+const request = require('request');
 const User = require('../../models/user');
 const LinkedIn = require('../../models/linkedin');
-const request = require('request');
 const bodyParser = require('body-parser').json();
 const token = require('../../auth/token');
 const ensureToken = require('../../auth/ensure-token')();
-
 
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET;
 const LINKEDIN_CLIENTID = process.env.LINKEDIN_CLIENTID;
@@ -81,7 +80,7 @@ router
     };
 
     // Exchange authorization code for access token.
-    request.post(accessTokenUrl, {form: params, json:true}, function(err, response, body) {
+    request.post(accessTokenUrl, {form: params, json: true}, function(err, response, body) {
       if (response.statusCode !== 200) {
         return res.status(response.statusCode).send({message: body.error_description});
       }
@@ -105,7 +104,7 @@ router
   .post('/userupdate', ensureToken, bodyParser, (req, res, next) => {
     User.findById(req.user.id)
       .then(user => {
-        if(user.linkedIn){
+        if(user.linkedIn) {
           LinkedIn.findByIdAndUpdate(user.linkedIn, req.body)
             .then(() => res.send(user));
         } else {

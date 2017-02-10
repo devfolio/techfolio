@@ -27,7 +27,8 @@ const userSchema = new Schema({
   personalInfo: {
     type: Schema.Types.ObjectId,
     ref: 'PersonalInfo'
-  }
+  },
+  roles: []
 
 });
 

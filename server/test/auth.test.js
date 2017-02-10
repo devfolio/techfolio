@@ -10,20 +10,12 @@ const request = chai.request(app);
 
 describe('User authentication routes', () => {
 
-  let token = '';
-  let adminToken = '';
+  let token = null;
   const tokenUser = {
     email: 'user@email.com',
     password: 'Password',
     firstName: 'First',
     lastName: 'Last'
-  };
-  const admin = {
-    email: 'admin@email.com',
-    password: 'Password',
-    firstName: 'Ad',
-    lastName: 'Min',
-    roles: ['admin']
   };
 
   before(done => {
@@ -38,21 +30,6 @@ describe('User authentication routes', () => {
         done();
       });
   });
-
-  before(done => {
-    // Set up a admin for later tests
-    request
-      .post('/auth/signup')
-      .send(admin)
-      .end((err, res) => {
-        if (err) done(err);
-        let response = JSON.parse(res.text);
-        adminToken = response.token;
-        assert.isOk(adminToken);
-        done();
-      });
-  });
-
 
   /***************  SIGN UP TESTS ***************************/
 

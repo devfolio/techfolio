@@ -1,8 +1,8 @@
 {
   "name": "devfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "An angular app which integrates with you Github and LinkedIn to create a personal Tech Portfolio",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "pretest": "eslint .",
@@ -17,7 +17,7 @@
     "Node"
   ],
   "author": "Gloria Anholt <gloriaanholt@gmail.com>, David Chase, Steven Jackson <smjackson2537@gmail.com>, Thomas Shultz <thomas.shultz52@gmail.com>",
-  "license": "CC-BY-NC-4.0",
+  "license": "ICS",
   "bugs": {
     "url": "https://github.com/devfolio/techfolio/issues"
   },

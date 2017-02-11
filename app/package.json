@@ -1,8 +1,8 @@
 {
   "name": "techfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An angular app which integrates with you Github and LinkedIn to create a personal Tech Portfolio",
+  "main": "app.js",
   "scripts": {
     "test": "karma start --single-run",
     "start": "webpack-dev-server --inline",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dchasepdx/pet-store.git"
+    "url": "git+https://github.com/devfolio/techfolio.git"
   },
-  "author": "",
+  "author": "Gloria Anholt <gloriaanholt@gmail.com>, David Chase, Steven Jackson <smjackson2537@gmail.com>, Thomas Shultz <thomas.shultz52@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dchasepdx/pet-store/issues"
+    "url": "https://github.com/devfolio/techfolio/issues"
   },
-  "homepage": "https://github.com/dchasepdx/pet-store",
+  "homepage": "https://github.com/devfolio/techfolio#readme",
   "devDependencies": {
     "angular-mocks": "^1.6.0",
     "babel-cli": "^6.18.0",

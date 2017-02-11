@@ -1,11 +1,10 @@
 const router = require('express').Router();
+const request = require('request');
 const User = require('../../models/user');
 const LinkedIn = require('../../models/linkedin');
-const request = require('request');
 const bodyParser = require('body-parser').json();
 const token = require('../../auth/token');
 const ensureToken = require('../../auth/ensure-token')();
-
 
 const LINKEDIN_SECRET = process.env.LINKEDIN_SECRET;
 const LINKEDIN_CLIENTID = process.env.LINKEDIN_CLIENTID;
@@ -34,8 +33,8 @@ router
           format: user.liAccess.format
         };
         return new Promise((resolve, reject) => {
-          request.get({url: profileUrl, qs: params, json: true}, (err, response, profile) => {
-            if(err) return reject({error: err});
+          request.get({ url: profileUrl, qs: params, json: true }, (err, response, profile) => {
+            if(err) return reject({ error: err });
             resolve(profile);
           });
         });
@@ -60,7 +59,7 @@ router
       .catch(error => next(error));
   })
 
-  .get('/getprofile', ensureToken, function(req, res, next){
+  .get('/getprofile', ensureToken, function(req, res, next) {
     User.findById(req.user.id)
       .select('linkedIn')
       .then(user => {
@@ -81,9 +80,9 @@ router
     };
 
     // Exchange authorization code for access token.
-    request.post(accessTokenUrl, {form: params, json:true}, function(err, response, body) {
+    request.post(accessTokenUrl, { form: params, json: true }, function(err, response, body) {
       if (response.statusCode !== 200) {
-        return res.status(response.statusCode).send({message: body.error_description});
+        return res.status(response.statusCode).send({ message: body.error_description });
       }
       var params = {
         oauth2_access_token: body.access_token,
@@ -92,12 +91,12 @@ router
       let userToken = req.headers.authorization;
 
       token.verify(userToken)
-        .then(({id}) => User.findById(id))
+        .then(({ id }) => User.findById(id))
         .then(user => {
           user.liAccess.oauth2_access_token = params.oauth2_access_token;
           user.liAccess.format = params.format;
           user.save();
-          res.send({token: params});
+          res.send({ token: params });
         });
     });
   })
@@ -105,7 +104,7 @@ router
   .post('/userupdate', ensureToken, bodyParser, (req, res, next) => {
     User.findById(req.user.id)
       .then(user => {
-        if(user.linkedIn){
+        if(user.linkedIn) {
           LinkedIn.findByIdAndUpdate(user.linkedIn, req.body)
             .then(() => res.send(user));
         } else {

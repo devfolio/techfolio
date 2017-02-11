@@ -4,7 +4,7 @@
   "description": "An angular app which integrates with you Github and LinkedIn to create a personal Tech Portfolio",
   "main": "app.js",
   "scripts": {
-    "test": "karma start --single-run",
+    "test": "karma start --browsers Chrome --single-run",
     "start": "webpack-dev-server --inline",
     "build": "webpack --define process.env.API_URL='\"\"'",
     "test:watch": "karma start",

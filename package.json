@@ -4,7 +4,7 @@
   "description": "An angular app which integrates with you Github and LinkedIn to create a personal Tech Portfolio",
   "main": "",
   "scripts": {
-    "test": "cd ../server && npm i && npm test"
+    "test": "cd server && npm i && npm test"
   },
   "repository": {
     "type": "git",

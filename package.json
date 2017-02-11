@@ -1,0 +1,25 @@
+{
+  "name": "devfolio",
+  "version": "1.0.0",
+  "description": "An angular app which integrates with you Github and LinkedIn to create a personal Tech Portfolio",
+  "main": "",
+  "scripts": {
+    "test": "cd server && npm i && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devfolio/techfolio.git"
+  },
+  "keywords": [
+    "Express", "Node", "Angular", "MongoDB"
+  ],
+  "author": "Gloria Anholt <gloriaanholt@gmail.com>, David Chase, Steven Jackson <smjackson2537@gmail.com>, Thomas Shultz <thomas.shultz52@gmail.com>",
+  "license": "ICS",
+  "bugs": {
+    "url": "https://github.com/devfolio/techfolio/issues"
+  },
+  "engines": {
+    "node": "6.8.1"
+  },
+  "homepage": "https://github.com/devfolio/techfolio#readme"
+}

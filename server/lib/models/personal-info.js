@@ -11,7 +11,7 @@ const personinfo = new Schema({
   graduation2: String,
   vocschool: String,
   certification: String,
-  skills: String,
+  skills: [String],
   twitter: String,
   facebook: String,
 });

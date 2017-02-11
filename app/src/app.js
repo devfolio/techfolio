@@ -14,7 +14,6 @@ import 'angular-ui-router/release/stateEvents';
 import dialog from 'ng-dialog';
 import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
-import 'angular-material/angular-material.css';
 
 import routes from './routes';
 import http from './auth/http';
@@ -31,7 +30,7 @@ const app = angular.module('TechFolio', [
 ]);
 
 
-app.constant('apiUrl', process.env.API_URL != null ? process.env.API_URL : 'https://localhost:3500' );
+app.constant('apiUrl', process.env.API_URL !== null ? process.env.API_URL : 'https://localhost:3500' );
 app.value('ghUrl', 'https://api.github.com');
 
 app.config(oauth);
